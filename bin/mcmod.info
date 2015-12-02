@@ -1,0 +1,17 @@
+[
+{
+  "modid": "ZDoctorMB",
+  "name": "Magic Baubles",
+  "description": "Magic at the tips of your fingers.",
+  "version": "1.7.10-0.1",
+  "mcversion": "1.7.10",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["ZDoctor"],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [],
+  "requiredMods": ["Forge", "AWWayofTime", "Baubles"],
+  "dependencies": ["Forge", "AWWayofTime", "Baubles"]
+}
+]
