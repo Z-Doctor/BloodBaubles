@@ -10,26 +10,26 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
 @Mod(modid = ModMain.MODID, name = ModMain.NAME, version = ModMain.VERSION)
 public class ModMain {
-  public final static String MODID = "ZDoctorMB";
+  public final static String MODID = "ZDoctorBB";
   public final static String NAME = "Blood Baubles";
-  public final static String VERSION = "ALPHA RELEASE";
-  
+  public final static String VERSION = "0.2";
+
   @SidedProxy(clientSide = "zdoctor.bloodbaubles.client.ClientProxy", serverSide = "zdoctor.bloodbaubles.common.CommonProxy")
   public static CommonProxy proxy;
-  
+
   @EventHandler
   public void preInit(FMLPreInitializationEvent e) {
     proxy.preInit(e);
   }
-  
+
   @EventHandler
   public void init(FMLInitializationEvent e) {
     proxy.init(e);
   }
-  
+
   @EventHandler
   public void postInit(FMLPostInitializationEvent e) {
     proxy.postInit(e);
   }
-  
+
 }

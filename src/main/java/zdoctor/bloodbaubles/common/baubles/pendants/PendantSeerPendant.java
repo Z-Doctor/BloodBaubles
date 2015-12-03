@@ -1,34 +1,33 @@
 package zdoctor.bloodbaubles.common.baubles.pendants;
 
+import java.util.List;
+
+import WayofTime.alchemicalWizardry.ModItems;
+import WayofTime.alchemicalWizardry.common.tileEntity.TEAltar;
+import baubles.api.BaubleType;
+import baubles.api.IBauble;
+import baubles.common.container.InventoryBaubles;
+import baubles.common.lib.PlayerHandler;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.ChatComponentText;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 import zdoctor.bloodbaubles.ModMain;
-import zdoctor.bloodbaubles.api.IRemember;
 import zdoctor.bloodbaubles.common.CTabs;
-import zdoctor.bloodbaubles.common.ZPendants;
-import zdoctor.bloodbaubles.common.helpers.BMHelpers;
-import zdoctor.bloodbaubles.world.data.bloodaltars.BloodAltarInfo;
-import WayofTime.alchemicalWizardry.ModItems;
-import WayofTime.alchemicalWizardry.api.soulNetwork.SoulNetworkHandler;
-import WayofTime.alchemicalWizardry.api.tile.IBloodAltar;
-import baubles.api.BaubleType;
-import baubles.api.IBauble;
-import baubles.common.container.InventoryBaubles;
-import baubles.common.lib.PlayerHandler;
+import zdoctor.bloodbaubles.common.helpers.LocatingHelpers;
 
 public class PendantSeerPendant extends Item implements IBauble {
   public static final Object[] recipe = new Object[] {
-      " x ", "x x", " s ", 'x', Items.string, ModItems.itemSeerSigil
+      " x ", "x x", " s ", 'x', Items.string, 's', ModItems.itemSeerSigil
   };
 
   protected static int defualtScanRadius = 10;
   protected int scanRadius;
+
+  public List<TEAltar> nearbyAltars;
 
   public PendantSeerPendant() {
     this(defualtScanRadius);
@@ -39,6 +38,7 @@ public class PendantSeerPendant extends Item implements IBauble {
     this.maxStackSize = 1;
     this.setCreativeTab(CTabs.BloodRings);
     this.setUnlocalizedName(ModMain.MODID + "_SeerPendant");
+    this.setTextureName(ModMain.MODID + ":SeerPendant");
     this.scanRadius = scan;
   }
 

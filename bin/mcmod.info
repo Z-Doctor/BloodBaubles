@@ -1,13 +1,13 @@
 [
 {
-  "modid": "ZDoctorMB",
-  "name": "Magic Baubles",
-  "description": "Magic at the tips of your fingers.",
-  "version": "1.7.10-0.1",
+  "modid": "ZDoctorBB",
+  "name": "Blood Baubles",
+  "description": "For the traveling BloodMage.",
+  "version": "1.7.10-0.2",
   "mcversion": "1.7.10",
   "url": "",
   "updateUrl": "",
-  "authorList": ["ZDoctor"],
+  "authorList": ["Z_Doctor"],
   "credits": "",
   "logoFile": "",
   "screenshots": [],
