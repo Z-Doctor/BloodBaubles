@@ -13,15 +13,16 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
+import net.minecraftforge.oredict.OreDictionary;
 import zdoctor.bloodbaubles.ModMain;
 import zdoctor.bloodbaubles.common.CTabs;
-import zdoctor.bloodbaubles.common.helpers.LocatingHelpers;
 
 public class PendantSeerPendant extends Item implements IBauble {
+  // Used by him, so will I
+  protected static ItemStack weakBloodOrbStack = new ItemStack(ModItems.weakBloodOrb, 1, OreDictionary.WILDCARD_VALUE);
   public static final Object[] recipe = new Object[] {
-      " x ", "x x", " s ", 'x', Items.string, 's', ModItems.itemSeerSigil
+      " x ", "xox", " s ", 'x', Items.string, 'o', weakBloodOrbStack,'s', ModItems.itemSeerSigil
   };
 
   protected static int defualtScanRadius = 10;

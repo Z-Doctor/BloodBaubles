@@ -1,8 +1,8 @@
 package zdoctor.bloodbaubles.common.recipes;
 
+import WayofTime.alchemicalWizardry.api.altarRecipeRegistry.AltarRecipeRegistry;
 import net.minecraft.item.ItemStack;
 import zdoctor.bloodbaubles.common.ZRings;
-import WayofTime.alchemicalWizardry.api.altarRecipeRegistry.AltarRecipeRegistry;
 
 public class RecipesAltar {
   public static void init() {

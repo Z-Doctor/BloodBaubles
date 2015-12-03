@@ -9,6 +9,6 @@ item.ZDoctorBB_IronMagiciansRing.name=Iron Magician's Ring
 item.ZDoctorBB_GoldMagiciansRing.name=Gold Magician's Ring
 item.ZDoctorBB_IronMastersRing.name=Iron Master's Ring
 item.ZDoctorBB_GoldMastersRing.name=Gold Master's Ring
-item.ZDoctorBB_PendantSeerPendant=Seer's Pendant
+item.ZDoctorBB_SeerPendant.name=Seer's Pendant
 
 itemGroup.MagicRings=Magic Rings

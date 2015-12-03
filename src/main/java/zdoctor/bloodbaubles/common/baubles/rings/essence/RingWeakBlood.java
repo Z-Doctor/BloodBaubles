@@ -1,8 +1,8 @@
 package zdoctor.bloodbaubles.common.baubles.rings.essence;
 
-import zdoctor.bloodbaubles.ModMain;
 import WayofTime.alchemicalWizardry.ModItems;
 import WayofTime.alchemicalWizardry.api.items.interfaces.IBloodOrb;
+import zdoctor.bloodbaubles.ModMain;
 
 public class RingWeakBlood extends RingEssence {
   public RingWeakBlood(RingMaterial material) {

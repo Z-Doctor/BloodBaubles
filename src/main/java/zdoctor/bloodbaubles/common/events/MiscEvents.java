@@ -1,13 +1,12 @@
 package zdoctor.bloodbaubles.common.events;
 
+import WayofTime.alchemicalWizardry.ModBlocks;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
-import cpw.mods.fml.common.gameevent.TickEvent;
-import net.minecraftforge.client.event.RenderWorldLastEvent;
+import net.minecraft.block.Block;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.event.world.WorldEvent;
-import zdoctor.bloodbaubles.client.render.GuiAltarInfo;
-import zdoctor.bloodbaubles.common.helpers.RenderHelper;
 import zdoctor.bloodbaubles.world.data.Data;
 
 public class MiscEvents {
@@ -23,6 +22,12 @@ public class MiscEvents {
         Data.theClientWorld = e.world;
       else
         Data.theServerWorld = e.world;
+    }
+
+    @SubscribeEvent
+    public void blockPlaced(BlockEvent.PlaceEvent e) {
+      if(Block.isEqualTo(e.block, ModBlocks.blockAltar) && !e.world.isRemote)
+          e.world.markBlockForUpdate(e.x, e.y, e.z);
     }
   }
 

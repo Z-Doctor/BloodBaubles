@@ -1,12 +1,12 @@
 package zdoctor.bloodbaubles.common.recipes;
 
+import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.item.ItemStack;
 import zdoctor.bloodbaubles.common.ZRings;
 import zdoctor.bloodbaubles.common.baubles.rings.basetier.RingGold;
 import zdoctor.bloodbaubles.common.baubles.rings.basetier.RingIron;
 import zdoctor.bloodbaubles.common.baubles.rings.essence.RingEssence;
 import zdoctor.bloodbaubles.common.baubles.rings.mastertier.RingGodsGift;
-import cpw.mods.fml.common.registry.GameRegistry;
 
 public class RecipesRings {
   public static void init() {

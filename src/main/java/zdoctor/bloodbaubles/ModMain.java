@@ -1,12 +1,12 @@
 package zdoctor.bloodbaubles;
 
-import zdoctor.bloodbaubles.common.CommonProxy;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import zdoctor.bloodbaubles.common.CommonProxy;
 
 @Mod(modid = ModMain.MODID, name = ModMain.NAME, version = ModMain.VERSION)
 public class ModMain {

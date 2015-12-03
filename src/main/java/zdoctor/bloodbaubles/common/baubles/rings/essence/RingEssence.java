@@ -2,6 +2,8 @@ package zdoctor.bloodbaubles.common.baubles.rings.essence;
 
 import java.util.List;
 
+import WayofTime.alchemicalWizardry.api.items.interfaces.IBloodOrb;
+import WayofTime.alchemicalWizardry.api.soulNetwork.SoulNetworkHandler;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -11,8 +13,6 @@ import net.minecraft.world.World;
 import zdoctor.bloodbaubles.api.IStoreLP;
 import zdoctor.bloodbaubles.common.ZRings;
 import zdoctor.bloodbaubles.common.baubles.rings.basetier.RingIron;
-import WayofTime.alchemicalWizardry.api.items.interfaces.IBloodOrb;
-import WayofTime.alchemicalWizardry.api.soulNetwork.SoulNetworkHandler;
 
 public class RingEssence extends RingIron implements IStoreLP {
   protected int maxEssence;

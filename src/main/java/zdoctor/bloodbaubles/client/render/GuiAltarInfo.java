@@ -62,31 +62,32 @@ public class GuiAltarInfo {
       PendantSeerPendant pendnant = (PendantSeerPendant) inventory.getStackInSlot(0).getItem();
       if (VectorHelper.entityWithinDist(clientAltar.xCoord, clientAltar.yCoord, clientAltar.zCoord, player, 10)) {
         TEAltar serverAltar = (TEAltar) Data.theServerWorld.getTileEntity(clientAltar.xCoord, clientAltar.yCoord, clientAltar.zCoord);
+        if(serverAltar != null) {
+          GL11.glPushMatrix(); // 0
+          RenderHelper.applyTETranslatef(clientAltar, 0.5f, 1.75f, 0.5f);
+          RenderHelper.applyFloatingRotations();
+          GL11.glRotatef(180f, 0, 0, 1f);
 
-        GL11.glPushMatrix(); // 0
-        RenderHelper.applyTETranslatef(clientAltar, 0.5f, 1.75f, 0.5f);
-        RenderHelper.applyFloatingRotations();
-        GL11.glRotatef(180f, 0, 0, 1f);
-
-        GL11.glPushMatrix(); // 1
-        GL11.glScalef(0.025f, 0.025f, 0.025f);
-        RenderHelper.renderText(getBloodData(serverAltar), 0);
-        GL11.glPopMatrix(); // 1
-
-        GL11.glPushMatrix();
-        GL11.glTranslatef(0f, 0.25f, 0f);
-        GL11.glScalef(0.025f, 0.025f, 0.025f);
-        RenderHelper.renderText("Tier: " + (serverAltar.getTier() <= 1 ? "1" : serverAltar.getTier()), Integer.parseInt("00AAAA", 16));
-        GL11.glPopMatrix();
-
-        if (serverAltar.getStackInSlot(0) != null) {
-          GL11.glPushMatrix(); // 3
-          GL11.glTranslatef(0f, 0.5f, 0f);
+          GL11.glPushMatrix(); // 1
           GL11.glScalef(0.025f, 0.025f, 0.025f);
-          RenderHelper.renderText(getAltarProgress(serverAltar), Integer.parseInt("AA0000", 16));
-          GL11.glPopMatrix(); // 3
+          RenderHelper.renderText(getBloodData(serverAltar), 0);
+          GL11.glPopMatrix(); // 1
+
+          GL11.glPushMatrix(); // 2
+          GL11.glTranslatef(0f, 0.25f, 0f);
+          GL11.glScalef(0.025f, 0.025f, 0.025f);
+          RenderHelper.renderText("Tier: " + (serverAltar.getTier() <= 1 ? "1" : serverAltar.getTier()), Integer.parseInt("00AAAA", 16));
+          GL11.glPopMatrix(); // 2
+
+          if (serverAltar.getStackInSlot(0) != null) {
+            GL11.glPushMatrix(); // 3
+            GL11.glTranslatef(0f, 0.5f, 0f);
+            GL11.glScalef(0.025f, 0.025f, 0.025f);
+            RenderHelper.renderText(getAltarProgress(serverAltar), Integer.parseInt("AA0000", 16));
+            GL11.glPopMatrix(); // 3
+          }
+          GL11.glPopMatrix(); // 0
         }
-        GL11.glPopMatrix(); // 0
       }
     }
   }

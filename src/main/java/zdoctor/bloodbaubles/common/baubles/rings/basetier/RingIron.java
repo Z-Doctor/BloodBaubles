@@ -2,6 +2,10 @@ package zdoctor.bloodbaubles.common.baubles.rings.basetier;
 
 import java.util.List;
 
+import baubles.api.BaubleType;
+import baubles.api.IBauble;
+import baubles.common.container.InventoryBaubles;
+import baubles.common.lib.PlayerHandler;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
@@ -10,10 +14,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import zdoctor.bloodbaubles.ModMain;
 import zdoctor.bloodbaubles.common.CTabs;
-import baubles.api.BaubleType;
-import baubles.api.IBauble;
-import baubles.common.container.InventoryBaubles;
-import baubles.common.lib.PlayerHandler;
 
 public class RingIron extends Item implements IBauble {
   public static final Object[] recipe = {" i ", "i i", " i ", 'i', Items.iron_ingot};

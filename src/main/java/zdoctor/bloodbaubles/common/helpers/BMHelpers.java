@@ -3,9 +3,9 @@ package zdoctor.bloodbaubles.common.helpers;
 import java.util.ArrayList;
 import java.util.List;
 
+import WayofTime.alchemicalWizardry.api.tile.IBloodAltar;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
-import WayofTime.alchemicalWizardry.api.tile.IBloodAltar;
 
 public class BMHelpers {
   public static IBloodAltar findNeareastAltar(World world, int x, int y, int z, int withinDist) {

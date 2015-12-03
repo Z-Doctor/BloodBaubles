@@ -1,11 +1,11 @@
 package zdoctor.bloodbaubles.common.baubles.rings.mastertier;
 
+import WayofTime.alchemicalWizardry.api.soulNetwork.SoulNetworkHandler;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import zdoctor.bloodbaubles.ModMain;
 import zdoctor.bloodbaubles.common.baubles.rings.basetier.RingGold;
-import WayofTime.alchemicalWizardry.api.soulNetwork.SoulNetworkHandler;
 
 public class RingZDoctors extends RingGold {
   protected int cost = 1;
