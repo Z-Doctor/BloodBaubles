@@ -1,0 +1,14 @@
+item.ZDoctorBB_BasicIronRing.name=铁指环
+item.ZDoctorBB_BasicGoldRing.name=金指环
+item.ZDoctorBB_GodsGift.name=上帝的礼物
+item.ZDoctorBB_WeakIronBloodRing.name=铁质虚弱指环
+item.ZDoctorBB_WeakGoldBloodRing.name=金子虚弱指环
+item.ZDoctorBB_IronApprenticeRing.name=铁质学徒指环
+item.ZDoctorBB_GoldApprenticeRing.name=金质学徒指环
+item.ZDoctorBB_IronMagiciansRing.name=铁质法师指环
+item.ZDoctorBB_GoldMagiciansRing.name=金质法师指环
+item.ZDoctorBB_IronMastersRing.name=铁质导师指环
+item.ZDoctorBB_GoldMastersRing.name=金质导师指环
+item.ZDoctorBB_SeerPendant.name=先知吊坠
+
+itemGroup.BloodBaubles=Blood Baubles
