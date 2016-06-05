@@ -1,9 +1,17 @@
 package zdoctor.bloodbaubles.common.baubles.pendants;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import WayofTime.bloodmagic.api.altar.IBloodAltar;
 import WayofTime.bloodmagic.api.network.SoulNetwork;
+import WayofTime.bloodmagic.api.registry.OrbRegistry;
 import WayofTime.bloodmagic.api.util.helper.NetworkHelper;
+import WayofTime.bloodmagic.api.util.helper.PlayerHelper;
+import WayofTime.bloodmagic.item.sigil.ItemSigilSeer;
 import WayofTime.bloodmagic.registry.ModItems;
 import WayofTime.bloodmagic.util.ChatUtil;
+import WayofTime.bloodmagic.util.helper.NumeralHelper;
 import baubles.api.BaubleType;
 import baubles.api.IBauble;
 import baubles.common.container.InventoryBaubles;
@@ -19,6 +27,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.TextComponentString;
+import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import zdoctor.bloodbaubles.CTabs;
@@ -29,8 +40,8 @@ public class SeersPendant extends Item implements IBauble {
 	public static final Object[] recipe = new Object[] { " x ", "xbx", " s ", 'x', Items.STRING, 'o', ModItems.orbWeak,
 			's', ModItems.sigilSeer };
 	protected final ResourceLocation file;
-	
-	//public List<Altar> nearbyAltars;
+
+	// public List<Altar> nearbyAltars;
 
 	public SeersPendant() {
 		super();
@@ -41,7 +52,6 @@ public class SeersPendant extends Item implements IBauble {
 		GameRegistry.register(this, this.file);
 		ZRenderRegistery.registerItem("pendants/SeersPendant", this, 0);
 	}
-	
 
 	@Override
 	public ActionResult<ItemStack> onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn,
@@ -61,8 +71,12 @@ public class SeersPendant extends Item implements IBauble {
 				}
 			} else {
 				SoulNetwork soulNetwork = NetworkHelper.getSoulNetwork(playerIn);
-				ChatUtil.sendNoSpam(playerIn,
-						soulNetwork.getPlayer().getName() + ": " + soulNetwork.getCurrentEssence() + " LP");
+				int tier = soulNetwork.getOrbTier();
+				int currentEssence = soulNetwork.getCurrentEssence();
+				int capacity = NetworkHelper.getMaximumForTier(tier);
+				playerIn.addChatMessage(new TextComponentString("Current Orb Tier: " + tier));
+				playerIn.addChatMessage(new TextComponentString("CurrentEssence: " + currentEssence));
+				playerIn.addChatMessage(new TextComponentString("Max Capacity: " + capacity));
 			}
 		}
 		return super.onItemRightClick(itemStackIn, worldIn, playerIn, hand);
@@ -108,7 +122,6 @@ public class SeersPendant extends Item implements IBauble {
 	public boolean canUnequip(ItemStack itemstack, EntityLivingBase playerIn) {
 		return true;
 	}
-
 
 	public int getScanRadius() {
 		return 10;
