@@ -1,18 +1,18 @@
-package zdoctor.bloodbaubles;
+package zdoctor.bloodbaubles.common;
 
-import cpw.mods.fml.common.Mod;
-import cpw.mods.fml.common.Mod.EventHandler;
-import cpw.mods.fml.common.SidedProxy;
-import cpw.mods.fml.common.event.FMLInitializationEvent;
-import cpw.mods.fml.common.event.FMLPostInitializationEvent;
-import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.Mod.EventHandler;
+import net.minecraftforge.fml.common.SidedProxy;
+import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import zdoctor.bloodbaubles.common.CommonProxy;
 
 @Mod(modid = ModMain.MODID, name = ModMain.NAME, version = ModMain.VERSION)
 public class ModMain {
   public final static String MODID = "ZDoctorBB";
   public final static String NAME = "Blood Baubles";
-  public final static String VERSION = "0.2";
+  public final static String VERSION = "Alpha";
 
   @SidedProxy(clientSide = "zdoctor.bloodbaubles.client.ClientProxy", serverSide = "zdoctor.bloodbaubles.common.CommonProxy")
   public static CommonProxy proxy;

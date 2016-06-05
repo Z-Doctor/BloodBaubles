@@ -3,8 +3,9 @@ package zdoctor.bloodbaubles.common.helpers;
 import java.util.ArrayList;
 import java.util.List;
 
-import WayofTime.alchemicalWizardry.api.tile.IBloodAltar;
+import WayofTime.bloodmagic.api.altar.IBloodAltar;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public class BMHelpers {
@@ -13,7 +14,7 @@ public class BMHelpers {
     for (int i = -withinDist; i <= withinDist; i++) {
       for (int j = -withinDist; j <= withinDist; j++) {
         for (int k = -withinDist; k <= withinDist; k++) {
-          tileEntity = world.getTileEntity(i + x, k + y, j + z);
+          tileEntity = world.getTileEntity(new BlockPos(i + x, k + y, j + z));
           if (tileEntity instanceof IBloodAltar) {
             return (IBloodAltar) tileEntity;
           }
@@ -29,7 +30,7 @@ public class BMHelpers {
     for (int i = -withinDist; i <= withinDist; i++) {
       for (int j = -withinDist; j <= withinDist; j++) {
         for (int k = -withinDist; k <= withinDist; k++) {
-          tileEntity = world.getTileEntity(i + x, k + y, j + z);
+          tileEntity = world.getTileEntity(new BlockPos(i + x, k + y, j + z));
           if (tileEntity instanceof IBloodAltar) {
             altarList.add((IBloodAltar) tileEntity);
           }
