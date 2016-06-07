@@ -15,25 +15,26 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import zdoctor.bloodbaubles.CTabs;
-import zdoctor.bloodbaubles.common.ModMain;
+import zdoctor.bloodbaubles.ModMain;
+import zdoctor.bloodbaubles.api.ICustomItem;
+import zdoctor.bloodbaubles.common.ZCustomItemRegistry;
 import zdoctor.bloodbaubles.common.ZRenderRegistery;
 
-public class BloodRing extends Item implements IBauble {
+public abstract class BloodRing extends Item implements IBauble, ICustomItem {
 	protected final ResourceLocation file;
 
-	public BloodRing(String nameIn, Object[] recipeIn) {
-		this(nameIn, recipeIn, false);
+	public BloodRing(String nameIn) {
+		this(nameIn, false);
 	}
 
-	public BloodRing(String nameIn, Object[] recipeIn, boolean hasSubTypes) {
+	public BloodRing(String nameIn, boolean hasSubTypes) {
 		this.file = new ResourceLocation(ModMain.MODID + ":rings/" + nameIn);
 		this.setHasSubtypes(hasSubTypes);
 		this.setMaxStackSize(1);
 		this.setCreativeTab(CTabs.BloodRings);
 		this.setUnlocalizedName(ModMain.MODID + "_" + nameIn);
 		GameRegistry.register(this, this.file);
-		if (recipeIn != null)
-			GameRegistry.addShapedRecipe(new ItemStack(this, 1, 0), recipeIn);
+		ZCustomItemRegistry.registerRecipe(this);
 		registerRender(nameIn);
 	}
 

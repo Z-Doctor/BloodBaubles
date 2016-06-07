@@ -15,7 +15,7 @@ import zdoctor.bloodbaubles.common.ZRing;
 import zdoctor.bloodbaubles.common.baubles.rings.essence.EssenceRing;
 
 public class RingEvents {
-	public static void init() {
+	public static void postInit() {
 		MinecraftForge.EVENT_BUS.register(new Events());
 	}
 
@@ -58,18 +58,5 @@ public class RingEvents {
 				}
 			}
 		}
-
-		// @SubscribeEvent
-		// public void itemCrafted(ItemCraftedEvent e) {
-		// if (e.crafting.getItem() instanceof RingEssence) {
-		// for (int i = 0; i < e.craftMatrix.getSizeInventory(); i++) {
-		// if (e.craftMatrix.getStackInSlot(i) != null
-		// && e.craftMatrix.getStackInSlot(i).getItem() instanceof IBloodOrb) {
-		// e.craftMatrix.setInventorySlotContents(i, null);
-		// break;
-		// }
-		// }
-		// }
-		// }
 	}
 }

@@ -9,21 +9,17 @@ import zdoctor.bloodbaubles.tweaks.VillageTweaks;
 public class CommonProxy {
 
 	public void preInit(FMLPreInitializationEvent e) {
-//		ModBlocks.blockAltar = new TweakBlockAltar();
 		ZRing.preInit();
+		ZPendant.preInit();
+		CTabs.preInit();
 	}
 
 	public void init(FMLInitializationEvent e) {
-//		RecipesAltar.init();
-//		RecipesRings.init();
-		CTabs.preInit();
-		ZRing.init();
-		ZPendant.init();
 	}
 
 	public void postInit(FMLPostInitializationEvent e) {
-		EventRegistry.init();
-		VillageTweaks.init();
+		EventRegistry.postInit();
+		VillageTweaks.postInit();
 	}
 
 }

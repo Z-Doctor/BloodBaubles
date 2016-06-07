@@ -1,32 +1,41 @@
 package zdoctor.bloodbaubles.common;
 
-import net.minecraft.item.Item;
 import zdoctor.bloodbaubles.common.baubles.rings.basetier.BasicGoldRing;
 import zdoctor.bloodbaubles.common.baubles.rings.basetier.BasicIronRing;
+import zdoctor.bloodbaubles.common.baubles.rings.basetier.BloodRing;
+import zdoctor.bloodbaubles.common.baubles.rings.essence.ApprenticesBloodRing;
+import zdoctor.bloodbaubles.common.baubles.rings.essence.ArchmagesBloodRing;
+import zdoctor.bloodbaubles.common.baubles.rings.essence.EssenceRing;
+import zdoctor.bloodbaubles.common.baubles.rings.essence.MagiciansBloodRing;
+import zdoctor.bloodbaubles.common.baubles.rings.essence.MastersBloodRing;
+import zdoctor.bloodbaubles.common.baubles.rings.essence.TranscendentsBloodRing;
 import zdoctor.bloodbaubles.common.baubles.rings.essence.WeakBloodRing;
 import zdoctor.bloodbaubles.common.baubles.rings.mastertier.GodsGift;
 
 public class ZRing {
-	public static Item BasicIronRing;
-	public static Item BasicGoldRing;
-	public static Item GodsGift;
-	public static Item WeakBloodRing;
+	public static BloodRing BasicIronRing;
+	public static BloodRing BasicGoldRing;
+
+	public static EssenceRing WeakBloodRing;
+	public static EssenceRing ApprenticesBloodRing;
+	public static EssenceRing MagiciansBloodRing;
+	public static EssenceRing MastersBloodRing;
+	public static EssenceRing ArchmagesBloodRing;
+	public static EssenceRing TranscendentsBloodRing;
+
+	public static GodsGift GodsGift;
+
 	public static void preInit() {
 		BasicIronRing = new BasicIronRing();
 		BasicGoldRing = new BasicGoldRing();
-		
-	}
-	public static void init() {
-		GodsGift = new GodsGift();
+
 		WeakBloodRing = new WeakBloodRing();
-	};
-//	public static Item ItemWeakIronBloodRing = new RingWeakBlood(RingMaterial.IRON);
-//	public static Item ItemWeakGoldBloodRing = new RingWeakBlood(RingMaterial.GOLD);
-//	public static Item ItemIronApprenticeRing = new RingApprentice(RingMaterial.IRON);
-//	public static Item ItemGoldApprenticeRing = new RingApprentice(RingMaterial.GOLD);
-//	public static Item ItemIronMagiciansRing = new RingMagicians(RingMaterial.IRON);
-//	public static Item ItemGoldMagiciansRing = new RingMagicians(RingMaterial.GOLD);
-//	public static Item ItemIronMasterRing = new RingMasters(RingMaterial.IRON);
-//	public static Item ItemGoldMasterRing;
-	//public static Item ItemZDoctorsRing = new RingZDoctors();
+		ApprenticesBloodRing = new ApprenticesBloodRing();
+		MagiciansBloodRing = new MagiciansBloodRing();
+		MastersBloodRing = new MastersBloodRing();
+		ArchmagesBloodRing = new ArchmagesBloodRing();
+		TranscendentsBloodRing = new TranscendentsBloodRing();
+
+		GodsGift = new GodsGift();
+	}
 }

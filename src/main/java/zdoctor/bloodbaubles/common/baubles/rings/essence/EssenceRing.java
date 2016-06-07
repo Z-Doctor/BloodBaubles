@@ -12,16 +12,17 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.world.World;
+import zdoctor.bloodbaubles.api.IConsumeBloodOrb;
 import zdoctor.bloodbaubles.api.IStoreLP;
 import zdoctor.bloodbaubles.common.baubles.rings.basetier.BloodRing;
 
-public class EssenceRing extends BloodRing implements IStoreLP {
-	public EssenceRing(String nameIn, Object[] recipeIn) {
-		this(nameIn, recipeIn, false);
+public abstract class EssenceRing extends BloodRing implements IStoreLP, IConsumeBloodOrb {
+	public EssenceRing(String nameIn) {
+		this(nameIn, false);
 	}
 
-	public EssenceRing(String nameIn, Object[] recipeIn, boolean hasSubTypes) {
-		super(nameIn, recipeIn, hasSubTypes);
+	public EssenceRing(String nameIn, boolean hasSubTypes) {
+		super(nameIn, hasSubTypes);
 	}
 
 	@Override

@@ -7,9 +7,7 @@ import org.lwjgl.opengl.GL11;
 
 import WayofTime.bloodmagic.api.Constants;
 import WayofTime.bloodmagic.api.altar.IBloodAltar;
-import WayofTime.bloodmagic.api.network.SoulNetwork;
 import WayofTime.bloodmagic.api.orb.IBloodOrb;
-import WayofTime.bloodmagic.api.util.helper.NetworkHelper;
 import WayofTime.bloodmagic.api.util.helper.PlayerHelper;
 import WayofTime.bloodmagic.tile.TileAltar;
 import baubles.common.container.InventoryBaubles;
@@ -98,9 +96,9 @@ public class GuiAltarInfo {
 	}
 
 	public static String getAltarProgress(TileAltar altar) {
-		if (altar.getStackInSlot(0) != null) {
-			ItemStack itemStack = altar.getStackInSlot(0);
-			if (altar.getStackInSlot(0).getItem() instanceof IBloodOrb) {
+		if (altar.func_70301_a(0) != null) {
+			ItemStack itemStack = altar.func_70301_a(0);
+			if (altar.func_70301_a(0).getItem() instanceof IBloodOrb) {
 				IBloodOrb orb = (IBloodOrb) itemStack.getItem();
 				String owner = "No Owner";
 				if (itemStack.getTagCompound() != null) {
@@ -111,9 +109,7 @@ public class GuiAltarInfo {
 					if (orb.getOrbLevel(itemStack.getMetadata()) > altar.getTier().toInt())
 						return "Upgrade to Tier " + orb.getOrbLevel(itemStack.getMetadata()) + " to charge orb.";
 					else {
-						SoulNetwork soulNetwork = NetworkHelper.getSoulNetwork(owner);
-						return PlayerHelper.getUsernameFromUUID(owner) + ": " + soulNetwork.getCurrentEssence()
-								+ " LP / " + +orb.getMaxEssence(itemStack.getMetadata()) + " LP";
+						return PlayerHelper.getUsernameFromUUID(owner) + " orb charging.";
 					}
 				}
 				return owner;

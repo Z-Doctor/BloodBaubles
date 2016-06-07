@@ -9,7 +9,7 @@ import zdoctor.bloodbaubles.common.baubles.rings.mastertier.GodsGift;
 
 public class ZPendant {
 	public static Item SeersPendant;
-	public static void init() {
+	public static void preInit() {
 		SeersPendant = new SeersPendant();
 	}
 }

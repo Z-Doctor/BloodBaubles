@@ -14,7 +14,7 @@ import net.minecraftforge.fml.common.registry.VillagerRegistry.VillagerProfessio
 import zdoctor.bloodbaubles.common.ZRing;
 
 public class VillageTweaks {
-	public static void init() {
+	public static void postInit() {
 		new PriestBlessing();
 	}
 

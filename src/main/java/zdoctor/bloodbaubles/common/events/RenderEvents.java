@@ -8,7 +8,7 @@ import zdoctor.bloodbaubles.client.render.GuiAltarInfo;
 import zdoctor.bloodbaubles.common.helpers.RenderHelper;
 
 public class RenderEvents {
-	public static void init() {
+	public static void postInit() {
 		MinecraftForge.EVENT_BUS.register(new Events());
 	}
 
