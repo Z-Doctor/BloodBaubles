@@ -3,19 +3,18 @@ package zdoctor.bloodbaubles.api;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 
-public interface IStoreLP {
-  public int getStoredLP(ItemStack iStack);
-  
-  public int getMaxCapacity(ItemStack iStack);
-  
-  public void syphon(ItemStack iStack, EntityPlayer player, int amountLP);
-  
-  public void storeLP(ItemStack iStack, int amountLP);
-  
-  public int getNeededLP(ItemStack iStack);
-  
-  public boolean isFull(ItemStack iStack);
-  
-  public int drainLP(ItemStack iStack, int amountLP);
-  
+public abstract interface IStoreLP {
+	public abstract int getLPReserve(ItemStack paramItemStack);
+
+	public abstract int getMaxCapacity(ItemStack paramItemStack);
+
+	public abstract void addToReserve(ItemStack paramItemStack, int paramInt);
+
+	public abstract int getNeededLP(ItemStack paramItemStack);
+
+	public abstract boolean isFull(ItemStack paramItemStack);
+
+	public abstract void attemptToFillFrom(EntityPlayer paramEntityPlayer, ItemStack paramItemStack);
+
+	public abstract int channelReserves(EntityPlayer paramEntityPlayer, ItemStack paramItemStack, int paramInt);
 }

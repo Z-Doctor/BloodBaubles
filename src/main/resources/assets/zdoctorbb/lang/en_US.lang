@@ -1,14 +1,22 @@
 item.ZDoctorBB_BasicIronRing.name=Iron Ring
 item.ZDoctorBB_BasicGoldRing.name=Gold Ring
-item.ZDoctorBB_GodsGift.name=God's Gift
+item.ZDoctorBB_GodsGift_Inactive.name=God's Gift (Inactive)
+item.ZDoctorBB_GodsGift_Active.name=God's Gift (Active)
 item.ZDoctorBB_WeakIronBloodRing.name=Weak Iron Blood Ring
 item.ZDoctorBB_WeakGoldBloodRing.name=Weak Gold Blood Ring
-item.ZDoctorBB_IronApprenticeRing.name=Iron Apprentice Ring
-item.ZDoctorBB_GoldApprenticeRing.name=Gold Apprentice Ring
-item.ZDoctorBB_IronMagiciansRing.name=Iron Magician's Ring
-item.ZDoctorBB_GoldMagiciansRing.name=Gold Magician's Ring
-item.ZDoctorBB_IronMastersRing.name=Iron Master's Ring
-item.ZDoctorBB_GoldMastersRing.name=Gold Master's Ring
-item.ZDoctorBB_SeerPendant.name=Seer's Pendant
+item.ZDoctorBB_ApprenticesIronBloodRing.name=Apprentice's Iron Ring
+item.ZDoctorBB_ApprenticesGoldBloodRing.name=Apprentice's Gold Ring
+item.ZDoctorBB_MagiciansIronBloodRing.name=Magician's Iron Ring
+item.ZDoctorBB_MagiciansGoldBloodRing.name=Magician's Gold Ring
+item.ZDoctorBB_MastersIronBloodRing.name=Master's Iron Ring
+item.ZDoctorBB_MastersGoldBloodRing.name=Master's Gold Ring
+item.ZDoctorBB_ArchmagesIronBloodRing.name=Archmage's Iron Ring
+item.ZDoctorBB_ArchmagesGoldBloodRing.name=Archmage's Gold Ring
+item.ZDoctorBB_TranscendentsIronBloodRing.name=Transcendent's Iron Ring
+item.ZDoctorBB_TranscendentsGoldBloodRing.name=Transcendent's Gold Ring
+
+
+
+item.ZDoctorBB_SeersPendant.name=Seer's Pendant
 
 itemGroup.BloodBaubles=Blood Baubles
