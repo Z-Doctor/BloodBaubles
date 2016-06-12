@@ -15,14 +15,12 @@ import zdoctor.bloodbaubles.common.baubles.rings.mastertier.GodsGift;
 public class ZRing {
 	public static BloodRing BasicIronRing;
 	public static BloodRing BasicGoldRing;
-
 	public static EssenceRing WeakBloodRing;
 	public static EssenceRing ApprenticesBloodRing;
 	public static EssenceRing MagiciansBloodRing;
 	public static EssenceRing MastersBloodRing;
 	public static EssenceRing ArchmagesBloodRing;
 	public static EssenceRing TranscendentsBloodRing;
-
 	public static GodsGift GodsGift;
 
 	public static void preInit() {
