@@ -4,18 +4,11 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 
 public interface IStoreLP {
-  public int getStoredLP(ItemStack iStack);
-  
-  public int getMaxCapacity(ItemStack iStack);
-  
-  public void syphon(ItemStack iStack, EntityPlayer player, int amountLP);
-  
-  public void storeLP(ItemStack iStack, int amountLP);
-  
-  public int getNeededLP(ItemStack iStack);
-  
-  public boolean isFull(ItemStack iStack);
-  
-  public int drainLP(ItemStack iStack, int amountLP);
-  
+	public int getLPReserve(ItemStack itemStackIn);
+	public int getMaxCapacity(ItemStack itemStackIn);
+	public void addToReserve(ItemStack itemStackIn, int amount);
+	public int getNeededLP(ItemStack itemStackIn);
+	public boolean isFull(ItemStack itemStackIn);
+	public void attemptToFillFrom(EntityPlayer playerIn, ItemStack itemStackIn);
+	public int channelReserves(EntityPlayer playerIn, ItemStack itemStackIn, int neededLP);
 }

@@ -1,35 +1,47 @@
 package zdoctor.bloodbaubles;
 
-import cpw.mods.fml.common.Mod;
-import cpw.mods.fml.common.Mod.EventHandler;
-import cpw.mods.fml.common.SidedProxy;
-import cpw.mods.fml.common.event.FMLInitializationEvent;
-import cpw.mods.fml.common.event.FMLPostInitializationEvent;
-import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import zdoctor.bloodbaubles.common.CommonProxy;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.Mod.EventHandler;
+import net.minecraftforge.fml.common.SidedProxy;
+import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import zdoctor.bloodbaubles.init.Events;
+import zdoctor.bloodbaubles.init.Rings;
+import zdoctor.bloodbaubles.proxy.CommonProxy;
+import zdoctor.bloodbaubles.registry.BaubleRegistry;
+import zdoctor.bloodbaubles.registry.EventRegistry;
 
-@Mod(modid = ModMain.MODID, name = ModMain.NAME, version = ModMain.VERSION)
-public class ModMain {
-  public final static String MODID = "ZDoctorBB";
-  public final static String NAME = "Blood Baubles";
-  public final static String VERSION = "0.2";
+/**
+ * The hope is for a highly automated, easy to maintain, easy to update, easy to
+ * add-on, highly efficient mod.
+ * 
+ * @author Z_Doctor
+ */
+@Mod(modid = References.MOD_ID, name = References.NAME, version = References.VERSION)
+public final class ModMain {
 
-  @SidedProxy(clientSide = "zdoctor.bloodbaubles.client.ClientProxy", serverSide = "zdoctor.bloodbaubles.common.CommonProxy")
-  public static CommonProxy proxy;
+	@SidedProxy(clientSide = References.CLIENT_PROXY, serverSide = References.SERVER_PROXY)
+	public static CommonProxy proxy;
 
-  @EventHandler
-  public void preInit(FMLPreInitializationEvent e) {
-    proxy.preInit(e);
-  }
+	@EventHandler
+	public void preInit(FMLPreInitializationEvent e) {
+		Rings.init();
+		BaubleRegistry.registerBaubles();
+		proxy.preInit(e);
+	}
 
-  @EventHandler
-  public void init(FMLInitializationEvent e) {
-    proxy.init(e);
-  }
+	@EventHandler
+	public void init(FMLInitializationEvent e) {
+		CTabs.registerTabs();
+		proxy.init(e);
+	}
 
-  @EventHandler
-  public void postInit(FMLPostInitializationEvent e) {
-    proxy.postInit(e);
-  }
+	@EventHandler
+	public void postInit(FMLPostInitializationEvent e) {
+		Events.init();
+		EventRegistry.registerEvents();
+		proxy.postInit(e);
+	}
 
 }

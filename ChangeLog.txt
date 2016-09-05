@@ -1,0 +1,10 @@
+2.0.0
+	+ Updated to 1.10
+	+ 1.8 Java syntax
+	+ Added TestRing, TestVariant and TestMultiRing to demonstrate implementation examples
+	+ Updated GodsGift
+	+ Added BaubleHelper class
+	+ Added functional api
+	+ Added EventRegistry and BaubleRegistry. Baubles and Events should be registered her.
+	+ Added EventTokens
+	+ Changed proxies. Added server proxy.

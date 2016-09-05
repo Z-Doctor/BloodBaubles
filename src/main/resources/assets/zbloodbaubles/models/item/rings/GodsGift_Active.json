@@ -1,0 +1,6 @@
+{
+    "parent":"zdoctormb:item/rings/standard_ring",
+    "textures": {
+        "layer0":"zdoctormb:rings/GodsGift_Active"
+    }
+}
