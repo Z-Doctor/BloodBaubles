@@ -2,51 +2,26 @@ package zdoctor.bloodbaubles.registry;
 
 import java.util.ArrayList;
 
-import zdoctor.bloodbaubles.api.ISubEvent;
+import zdoctor.bloodbaubles.api.events.ISubEvent;
 import zdoctor.bloodbaubles.events.SubEvent;
 
 public class EventRegistry {
 	private static final ArrayList<SubEvent> REGISTRY = new ArrayList<>();
 
 	public static void registerEvent(SubEvent event) {
-		System.out.println("RegisterEvent");
 		REGISTRY.add(event);
 	}
-
-	public static void registerEvents() {
-		REGISTRY.forEach((event) -> {
-			event.registerEvent();
-		});
-		
+	
+	public static void registerSubscibers() {
 		BaubleRegistry.REGISTRY.forEach((bauble) -> {
-			if (bauble instanceof ISubEvent)
+			if (bauble instanceof ISubEvent) {
 				REGISTRY.forEach((event) -> {
-					event.registerSub(bauble);
+					event.registerSub((ISubEvent)bauble);
 				});
+			}
 		});
-	};
+	}
 
-	// public static class events {
-	// @SubscribeEvent(receiveCanceled = false)
-	// public void deathEvent(LivingHurtEvent e) {
-	// if (e.getEntity() instanceof EntityPlayer && e.isCancelable()) {
-	// if (e.getEntityLiving().getHealth() - e.getAmount() <= 0) {
-	// InventoryBaubles baubles = PlayerHandler.getPlayerBaubles((EntityPlayer)
-	// e.getEntity());
-	// for (int i = 0; i < baubles.getSizeInventory(); i++) {
-	// if (baubles.getStackInSlot(i) != null
-	// && baubles.getStackInSlot(i).isItemEqual(new ItemStack(ZRing.GodsGift, 1,
-	// 1))) {
-	// baubles.stackList[i] = new ItemStack(ZRing.GodsGift, 1, 0);
-	// e.setCanceled(true);
-	// e.getEntityLiving().heal(e.getEntityLiving().getMaxHealth());
-	// break;
-	// }
-	// }
-	// }
-	// }
-	// }
-	//
 	// @SubscribeEvent(receiveCanceled = false)
 	// public void syphonEvent(ItemDrainNetworkEvent e) {
 	// EntityPlayer player = PlayerHelper.getPlayerFromUUID(e.ownerUUID);

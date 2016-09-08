@@ -40,7 +40,7 @@ public final class ModMain {
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent e) {
 		Events.init();
-		EventRegistry.registerEvents();
+		EventRegistry.registerSubscibers();
 		proxy.postInit(e);
 	}
 

@@ -11,7 +11,7 @@ public final class CTabs {
 		
 		@Override
 		public Item getTabIconItem() {
-			return Rings.BasicRing;
+			return Rings.GodsGift;
 		}
 	};
 }

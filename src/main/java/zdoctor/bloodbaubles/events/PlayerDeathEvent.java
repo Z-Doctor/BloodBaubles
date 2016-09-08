@@ -1,25 +1,16 @@
 package zdoctor.bloodbaubles.events;
 
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import zdoctor.bloodbaubles.api.ISubPlayerDeath;
+import zdoctor.bloodbaubles.api.events.ISubPlayerDeath;
 import zdoctor.bloodbaubles.token.PlayerDeathToken;
 
 public class PlayerDeathEvent extends SubEvent<ISubPlayerDeath> {
 
 	public PlayerDeathEvent() {
-	}
-
-	@Override
-	public boolean isSub(Object obj) {
-		return obj instanceof ISubPlayerDeath;
-	}
-
-	@Override
-	public void registerEvent() {
-		MinecraftForge.EVENT_BUS.register(new Event());
+		super(ISubPlayerDeath.class);
+		this.registerEvent(new Event());
 	}
 
 	private class Event {
@@ -27,6 +18,7 @@ public class PlayerDeathEvent extends SubEvent<ISubPlayerDeath> {
 		public void deathEvent(LivingHurtEvent e) {
 			if (e.getEntity() instanceof EntityPlayer && e.isCancelable()) {
 				if (e.getEntityLiving().getHealth() - e.getAmount() <= 0) {
+					System.out.println("Player going to die");
 					PlayerDeathToken token = new PlayerDeathToken(e);
 					REGISTRY.forEach((sub) -> {
 						if (e.isCanceled() && !sub.receiveCanceled())
@@ -38,9 +30,4 @@ public class PlayerDeathEvent extends SubEvent<ISubPlayerDeath> {
 			}
 		}
 	}
-
-	public void init() {
-
-	}
-
 }

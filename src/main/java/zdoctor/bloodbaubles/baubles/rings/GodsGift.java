@@ -2,12 +2,12 @@ package zdoctor.bloodbaubles.baubles.rings;
 
 import net.minecraft.util.DamageSource;
 import zdoctor.bloodbaubles.References;
-import zdoctor.bloodbaubles.api.ISubPlayerDeath;
+import zdoctor.bloodbaubles.api.events.ISubPlayerDeath;
 import zdoctor.bloodbaubles.baubles.VariantBloodRing;
 import zdoctor.bloodbaubles.helpers.BaubleHelper;
 import zdoctor.bloodbaubles.token.PlayerDeathToken;
 
-public final class GodsGift extends VariantBloodRing implements ISubPlayerDeath {
+public final class GodsGift extends VariantBloodRing implements ISubPlayerDeath<PlayerDeathToken> {
 	public GodsGift() {
 		super(References.GODSGIFT);
 		this.addVariant(References.GODSGIFT_ACTIVE);

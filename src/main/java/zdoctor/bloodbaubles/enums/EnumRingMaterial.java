@@ -1,7 +1,7 @@
 package zdoctor.bloodbaubles.enums;
 
 public enum EnumRingMaterial {
-	Wood(0.1d), Stone(0.25d), Iron(0.85d), Gold(1.15d), Diamond(2d);
+	Wood(0.1d), Stone(0.25d), Iron(0.85d), Gold(1.45d), Diamond(2.15d);
 
 	private double multiplier;
 

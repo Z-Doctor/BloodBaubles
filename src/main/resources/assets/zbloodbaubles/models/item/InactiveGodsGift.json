@@ -1,6 +1,6 @@
 {
-    "parent":"zmagicbaubles:item/standard_item",
+    "parent":"zbloodbaubles:item/standard_item",
     "textures": {
-        "layer0":"zmagicbaubles:rings/GodsGift_Inactive"
+        "layer0":"zbloodbaubles:rings/GodsGift_Inactive"
     }
 }
