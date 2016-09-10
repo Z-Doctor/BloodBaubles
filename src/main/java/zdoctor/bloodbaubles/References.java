@@ -25,6 +25,6 @@ public final class References {
 	public static final String GODSGIFT_INACTIVE = "Inactive";
 	public static final String BASICRING = "BasicRing";
 
-	public static final String WEAKESSENCE = "WeakEssece";
+	public static final String WEAKESSENCE = "WeakEssence";
 
 }

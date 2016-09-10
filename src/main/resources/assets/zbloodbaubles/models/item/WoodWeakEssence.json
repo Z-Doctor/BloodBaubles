@@ -1,0 +1,7 @@
+{
+    "parent":"zbloodbaubles:item/standard_item",
+    "textures": {
+        "layer0":"zbloodbaubles:rings/WoodRing",
+        "layer1":"zbloodbaubles:gemstones/weakBloodOrb"
+    }
+}

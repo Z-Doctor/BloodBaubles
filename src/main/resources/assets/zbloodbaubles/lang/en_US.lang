@@ -1,16 +1,14 @@
 itemGroup.BloodBaubles=Blood Baubles
 
-item.TestRing.name=Test Ring
+item.WoodBasicRing.name=Basic Wood Ring
+item.StoneBasicRing.name=Basic Stone Ring
+item.IronBasicRing.name=Basic Iron Ring
+item.GoldBasicRing.name=Basic Gold Ring
+item.DiamondBasicRing.name=Basic Diamond Ring
+item.WoodWeakEssence.name=Weak Wood Essence
+item.StoneWeakEssence.name=Weak Stone Essence
+item.IronWeakEssence.name=Weak Iron Essence
+item.GoldWeakEssence.name=Weak Gold Essence
+item.DiamondWeakEssence=Weak Diamond Essence
 item.ActiveGodsGift.name=God's Gift (Active)
 item.InactiveGodsGift.name=God's Gift (Inactive)
-
-
-item.ZDoctorMB_WeakIronBloodRing.name=Weak Iron Blood Ring
-item.ZDoctorMB_WeakGoldBloodRing.name=Weak Gold Blood Ring
-item.ZDoctorMB_IronApprenticeRing.name=Iron Apprentice Ring
-item.ZDoctorMB_GoldApprenticeRing.name=Gold Apprentice Ring
-item.ZDoctorMB_IronMagiciansRing.name=Iron Magician's Ring
-item.ZDoctorMB_GoldMagiciansRing.name=Gold Magician's Ring
-item.ZDoctorMB_IronMastersRing.name=Iron Master's Ring
-item.ZDoctorMB_GoldMastersRing.name=Gold Master's Ring
-item.ZDoctorMB_ZDoctorsRing.name=ZDoctor's Ring

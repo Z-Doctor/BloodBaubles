@@ -2,6 +2,7 @@ package zdoctor.bloodbaubles.baubles;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.BiConsumer;
 
 import net.minecraft.client.renderer.block.model.ModelBakery;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -64,6 +65,11 @@ public abstract class VariantBloodRing extends BloodRing implements IVariant {
 	public void addVariant(String varName) {
 		this.variantNames.add(varName);
 	}
+	
+	@Override
+	public void addVariant(String varName, int meta) {
+		this.variantNames.set(meta, varName);
+	}
 
 	@Override
 	public String getVariantName(int meta) {
@@ -73,6 +79,11 @@ public abstract class VariantBloodRing extends BloodRing implements IVariant {
 	@Override
 	public int getVariantMeta(String varName) {
 		return variantNames.indexOf(varName);
+	}
+	
+	@Override
+	public void forEachVariant(BiConsumer<Integer, String> action) {
+		this.forEachVariant(this.variantNames, action);
 	}
 
 }

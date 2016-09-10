@@ -9,25 +9,26 @@ import zdoctor.bloodbaubles.token.PlayerDeathToken;
 public class PlayerDeathEvent extends SubEvent<ISubPlayerDeath> {
 
 	public PlayerDeathEvent() {
-		super(ISubPlayerDeath.class);
-		this.registerEvent(new Event());
+		super();
 	}
 
-	private class Event {
-		@SubscribeEvent(receiveCanceled = false)
-		public void deathEvent(LivingHurtEvent e) {
-			if (e.getEntity() instanceof EntityPlayer && e.isCancelable()) {
-				if (e.getEntityLiving().getHealth() - e.getAmount() <= 0) {
-					System.out.println("Player going to die");
-					PlayerDeathToken token = new PlayerDeathToken(e);
-					REGISTRY.forEach((sub) -> {
-						if (e.isCanceled() && !sub.receiveCanceled())
-							return;
-						else
-							sub.onEvent(token);
-					});
-				}
+	@SubscribeEvent(receiveCanceled = false)
+	public void deathEvent(LivingHurtEvent e) {
+		if (e.getEntity() instanceof EntityPlayer && e.isCancelable()) {
+			if (e.getEntityLiving().getHealth() - e.getAmount() <= 0) {
+				PlayerDeathToken token = new PlayerDeathToken(e);
+				REGISTRY.forEach(sub -> {
+					if (e.isCanceled() && !sub.receiveCanceled())
+						return;
+					else
+						sub.onEvent(token);
+				});
 			}
 		}
+	}
+
+	@Override
+	public boolean isSub(Object sub) {
+		return sub instanceof ISubPlayerDeath;
 	}
 }

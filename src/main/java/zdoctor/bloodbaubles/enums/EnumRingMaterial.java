@@ -12,6 +12,9 @@ public enum EnumRingMaterial {
 	public double getMultiplier() {
 		return this.multiplier;
 	}
-	
-	
+
+	public int getMeta() {
+		return this.ordinal();
+	}
+
 }

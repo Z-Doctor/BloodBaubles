@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import baubles.api.IBauble;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import zdoctor.bloodbaubles.api.IAutoRecipe;
 import zdoctor.bloodbaubles.api.IAutoRegister;
 
 /**
@@ -18,14 +19,22 @@ public final class BaubleRegistry {
 	protected static ArrayList<IAutoRegister> REGISTRY = new ArrayList<>();
 
 	public static void registerBaubles() {
-		REGISTRY.forEach((bauble) -> {
+		REGISTRY.forEach(bauble -> {
 			bauble.registerItem();
+		});
+	}
+
+	public static void registerBaubleRecipes() {
+		REGISTRY.forEach(bauble -> {
+			if (bauble instanceof IAutoRecipe) {
+				((IAutoRecipe) bauble).registerRecipe();
+			}
 		});
 	}
 
 	@SideOnly(Side.CLIENT)
 	public static void registerRenders() {
-		REGISTRY.forEach((bauble) -> {
+		REGISTRY.forEach(bauble -> {
 			bauble.registerRender();
 		});
 	}

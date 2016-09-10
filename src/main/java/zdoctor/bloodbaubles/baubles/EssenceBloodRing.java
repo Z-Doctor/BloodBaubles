@@ -40,7 +40,6 @@ public abstract class EssenceBloodRing extends MaterialBloodRing implements ISub
 		if (!worldIn.isRemote) {
 			if (playerIn.isSneaking()) {
 				EssenceHelper eH = new EssenceHelper(itemStackIn);
-//				System.out.println("NotFull: " + !eH.isFull(itemStackIn));
 				if (!eH.isFull(itemStackIn)) {
 					int drainedAmount = eH.attemptToFillFrom(playerIn);
 					return new ActionResult(EnumActionResult.PASS, itemStackIn);
@@ -54,8 +53,6 @@ public abstract class EssenceBloodRing extends MaterialBloodRing implements ISub
 	public void onEvent(NetworkDrainToken token) {
 		if (!token.isCreative()) {
 			SoulNetworkHelper sH = new SoulNetworkHelper(token.player);
-//			System.out.println("PlayerLP: " + sH.getCurrentEssence());
-//			System.out.println("TokenNeeds: " + token.getDrainAmount());
 			if (!sH.hasEnough(token.getDrainAmount()) || !this.isEmergencyReserve()) {
 				BaubleHelper bH = new BaubleHelper(token.player);
 				if (bH.isWearing(this)) {

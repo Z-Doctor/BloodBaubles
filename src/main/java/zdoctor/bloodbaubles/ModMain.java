@@ -20,7 +20,6 @@ import zdoctor.bloodbaubles.registry.EventRegistry;
  */
 @Mod(modid = References.MOD_ID, name = References.NAME, version = References.VERSION)
 public final class ModMain {
-
 	@SidedProxy(clientSide = References.CLIENT_PROXY, serverSide = References.SERVER_PROXY)
 	public static CommonProxy proxy;
 
@@ -34,6 +33,8 @@ public final class ModMain {
 	@EventHandler
 	public void init(FMLInitializationEvent e) {
 		CTabs.registerTabs();
+		// RecipeRegistry.initRecipes();
+		BaubleRegistry.registerBaubleRecipes();
 		proxy.init(e);
 	}
 
