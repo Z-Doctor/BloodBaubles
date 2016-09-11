@@ -12,20 +12,20 @@ import zdoctor.bloodbaubles.events.SubEvent;
  * @author Z_Doctor
  */
 public final class EventRegistry {
-	private static final ArrayList<SubEvent> REGISTRY = new ArrayList<>();
+  private static final ArrayList<SubEvent> REGISTRY = new ArrayList<>();
 
-	public static void registerEvent(SubEvent event) {
-		REGISTRY.add(event);
-	}
+  public static void registerEvent(SubEvent event) {
+    REGISTRY.add(event);
+  }
 
-	public static void registerSubscibers() {
-		BaubleRegistry.REGISTRY.forEach(bauble -> {
-			if (bauble instanceof ISubEvent) {
-				REGISTRY.forEach(event -> {
-					event.registerSub((ISubEvent) bauble);
-				});
-			}
-		});
-	}
+  public static void registerSubscibers() {
+    BaubleRegistry.REGISTRY.forEach(bauble -> {
+      if (bauble instanceof ISubEvent) {
+        REGISTRY.forEach(event -> {
+          event.registerSub((ISubEvent) bauble);
+        });
+      }
+    });
+  }
 
 }

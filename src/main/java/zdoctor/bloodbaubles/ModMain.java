@@ -22,29 +22,29 @@ import zdoctor.bloodbaubles.registry.EventRegistry;
  */
 @Mod(modid = References.MOD_ID, name = References.NAME, version = References.VERSION)
 public final class ModMain {
-	@SidedProxy(clientSide = References.CLIENT_PROXY, serverSide = References.SERVER_PROXY)
-	public static CommonProxy proxy;
+  @SidedProxy(clientSide = References.CLIENT_PROXY, serverSide = References.SERVER_PROXY)
+  public static CommonProxy proxy;
 
-	@EventHandler
-	public void preInit(FMLPreInitializationEvent e) {
-		Rings.init();
-		BaubleRegistry.registerBaubles();
-		proxy.preInit(e);
-	}
+  @EventHandler
+  public void preInit(FMLPreInitializationEvent e) {
+    Rings.init();
+    BaubleRegistry.registerBaubles();
+    proxy.preInit(e);
+  }
 
-	@EventHandler
-	public void init(FMLInitializationEvent e) {
-		ModCreativeTabs.initTabs();
-		BaubleRegistry.registerBaubleRecipes();
-		proxy.init(e);
-	}
+  @EventHandler
+  public void init(FMLInitializationEvent e) {
+    ModCreativeTabs.initTabs();
+    BaubleRegistry.registerBaubleRecipes();
+    proxy.init(e);
+  }
 
-	@EventHandler
-	public void postInit(FMLPostInitializationEvent e) {
-		Events.init();
-		EventRegistry.registerSubscibers();
-		Tweaks.initTweaks();
-		proxy.postInit(e);
-	}
+  @EventHandler
+  public void postInit(FMLPostInitializationEvent e) {
+    Events.init();
+    EventRegistry.registerSubscibers();
+    Tweaks.initTweaks();
+    proxy.postInit(e);
+  }
 
 }

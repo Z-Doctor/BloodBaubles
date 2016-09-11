@@ -29,72 +29,74 @@ import zdoctor.bloodbaubles.registry.BaubleRegistry;
  */
 public abstract class BloodRing extends Item implements IBauble, IAutoRegister {
 
-	public BloodRing(String nameIn) {
-		this.setRegistryName(nameIn);
-		this.setUnlocalizedName(nameIn);
-		this.setMaxStackSize(1);
-		this.setCreativeTab(ModCreativeTabs.BloodRings);
+  public BloodRing(String nameIn) {
+    this.setRegistryName(nameIn);
+    this.setUnlocalizedName(nameIn);
+    this.setMaxStackSize(1);
+    this.setCreativeTab(ModCreativeTabs.BloodRings);
 
-		BaubleRegistry.registerBauble(this);
-	}
+    BaubleRegistry.registerBauble(this);
+  }
 
-	@Override
-	public ActionResult<ItemStack> onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn,
-			EnumHand hand) {
-		if (!worldIn.isRemote) {
-			InventoryBaubles baubles = PlayerHandler.getPlayerBaubles(playerIn);
-			for (int i = 0; i < baubles.getSizeInventory(); i++) {
-				if (baubles.getStackInSlot(i) == null && baubles.isItemValidForSlot(i, itemStackIn)) {
-					baubles.setInventorySlotContents(i, itemStackIn.copy());
-					if (!playerIn.capabilities.isCreativeMode) {
-						playerIn.inventory.setInventorySlotContents(playerIn.inventory.currentItem, null);
-					}
-					onEquipped(itemStackIn, playerIn);
-					break;
-				}
-			}
-		}
-		return super.onItemRightClick(itemStackIn, worldIn, playerIn, hand);
-	}
+  @Override
+  public ActionResult<ItemStack> onItemRightClick(ItemStack itemStackIn,
+      World worldIn, EntityPlayer playerIn, EnumHand hand) {
+    if (!worldIn.isRemote) {
+      InventoryBaubles baubles = PlayerHandler.getPlayerBaubles(playerIn);
+      for (int i = 0; i < baubles.getSizeInventory(); i++) {
+        if (baubles.getStackInSlot(i) == null
+            && baubles.isItemValidForSlot(i, itemStackIn)) {
+          baubles.setInventorySlotContents(i, itemStackIn.copy());
+          if (!playerIn.capabilities.isCreativeMode) {
+            playerIn.inventory
+                .setInventorySlotContents(playerIn.inventory.currentItem, null);
+          }
+          onEquipped(itemStackIn, playerIn);
+          break;
+        }
+      }
+    }
+    return super.onItemRightClick(itemStackIn, worldIn, playerIn, hand);
+  }
 
-	@Override
-	public boolean canEquip(ItemStack itemStackIn, EntityLivingBase playerIn) {
-		return true;
-	}
+  @Override
+  public boolean canEquip(ItemStack itemStackIn, EntityLivingBase playerIn) {
+    return true;
+  }
 
-	@Override
-	public boolean canUnequip(ItemStack itemStackIn, EntityLivingBase playerIn) {
-		return true;
-	}
+  @Override
+  public boolean canUnequip(ItemStack itemStackIn, EntityLivingBase playerIn) {
+    return true;
+  }
 
-	@Override
-	public void onUnequipped(ItemStack itemStackIn, EntityLivingBase playerIn) {
-	}
+  @Override
+  public void onUnequipped(ItemStack itemStackIn, EntityLivingBase playerIn) {
+  }
 
-	@Override
-	public void onWornTick(ItemStack itemStackIn, EntityLivingBase playerIn) {
-	}
+  @Override
+  public void onWornTick(ItemStack itemStackIn, EntityLivingBase playerIn) {
+  }
 
-	@Override
-	public BaubleType getBaubleType(ItemStack itemStackIn) {
-		return BaubleType.RING;
-	}
+  @Override
+  public BaubleType getBaubleType(ItemStack itemStackIn) {
+    return BaubleType.RING;
+  }
 
-	@Override
-	public void onEquipped(ItemStack itemStackIn, EntityLivingBase playerIn) {
-		if (!playerIn.worldObj.isRemote) {
-			playerIn.playSound(SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 0.1F, 1.3f);
-		}
-	}
+  @Override
+  public void onEquipped(ItemStack itemStackIn, EntityLivingBase playerIn) {
+    if (!playerIn.worldObj.isRemote) {
+      playerIn.playSound(SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 0.1F, 1.3f);
+    }
+  }
 
-	@Override
-	public void registerItem() {
-		GameRegistry.register(this);
-	}
+  @Override
+  public void registerItem() {
+    GameRegistry.register(this);
+  }
 
-	@Override
-	public void registerRender() {
-		ModelLoader.setCustomModelResourceLocation(this, 0,
-				new ModelResourceLocation(this.getRegistryName().toString()));
-	}
+  @Override
+  public void registerRender() {
+    ModelLoader.setCustomModelResourceLocation(this, 0,
+        new ModelResourceLocation(this.getRegistryName().toString()));
+  }
 }

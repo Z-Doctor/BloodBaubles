@@ -24,66 +24,71 @@ import zdoctor.bloodbaubles.baubles.rings.GodsGift;
  * @author Z_Doctor
  */
 public abstract class VariantBloodRing extends BloodRing implements IVariant {
-	List<ModelResourceLocation> variants = new ArrayList<>();
-	List<String> variantNames = new ArrayList<>();
+  List<ModelResourceLocation> variants = new ArrayList<>();
+  List<String> variantNames = new ArrayList<>();
 
-	public VariantBloodRing(String nameIn) {
-		super(nameIn);
-		this.setHasSubtypes(true);
-	}
+  public VariantBloodRing(String nameIn) {
+    super(nameIn);
+    this.setHasSubtypes(true);
+  }
 
-	@Override
-	public String getUnlocalizedName(ItemStack stack) {
-		return "item." + getVariantName(stack.getMetadata()) + this.getRegistryName().getResourcePath();
-	}
+  @Override
+  public String getUnlocalizedName(ItemStack stack) {
+    return "item." + getVariantName(stack.getMetadata())
+        + this.getRegistryName().getResourcePath();
+  }
 
-	@Override
-	public void getSubItems(Item itemIn, CreativeTabs tab, List<ItemStack> subItems) {
-		this.variantNames.forEach((varName) -> {
-			subItems.add(new ItemStack(this, 1, this.variantNames.indexOf(varName)));
-		});
-	}
+  @Override
+  public void getSubItems(Item itemIn, CreativeTabs tab,
+      List<ItemStack> subItems) {
+    this.variantNames.forEach((varName) -> {
+      subItems.add(new ItemStack(this, 1, this.variantNames.indexOf(varName)));
+    });
+  }
 
-	@Override
-	public void registerItem() {
-		super.registerItem();
-		variantNames.forEach((varName) -> {
-			this.variants.add(new ModelResourceLocation(this.getRegistryName().getResourceDomain() + ":" + varName
-					+ this.getRegistryName().getResourcePath()));
-		});
-		ModelBakery.registerItemVariants(this, this.variants.toArray(new ResourceLocation[this.variants.size()]));
-	}
+  @Override
+  public void registerItem() {
+    super.registerItem();
+    variantNames.forEach((varName) -> {
+      this.variants.add(
+          new ModelResourceLocation(this.getRegistryName().getResourceDomain()
+              + ":" + varName + this.getRegistryName().getResourcePath()));
+    });
+    ModelBakery.registerItemVariants(this,
+        this.variants.toArray(new ResourceLocation[this.variants.size()]));
+  }
 
-	@Override
-	public void registerRender() {
-		this.variants.forEach((variant) -> {
-			ModelLoader.setCustomModelResourceLocation(this, this.variants.indexOf(variant), variant);
-		});
-	}
+  @Override
+  public void registerRender() {
+    this.variants.forEach((variant) -> {
+      ModelLoader.setCustomModelResourceLocation(this,
+          this.variants.indexOf(variant), variant);
+    });
+  }
 
-	@Override
-	public void addVariant(String varName) {
-		this.variantNames.add(varName);
-	}
-	
-	@Override
-	public void addVariant(String varName, int meta) {
-		this.variantNames.set(meta, varName);
-	}
+  @Override
+  public void addVariant(String varName) {
+    this.variantNames.add(varName);
+  }
 
-	@Override
-	public String getVariantName(int meta) {
-		return this.variantNames.get(meta);
-	}
+  @Override
+  public void addVariant(String varName, int meta) {
+    this.variantNames.set(meta, varName);
+  }
 
-	@Override
-	public int getVariantMeta(String varName) {
-		return variantNames.indexOf(varName);
-	}
-	
-	@Override
-	public void forEachVariant(BiConsumer<Integer, String> action) {
-		this.forEachVariant(this.variantNames, action);
-	}
+  @Override
+  public String getVariantName(int meta) {
+    return this.variantNames.get(meta);
+  }
+
+  @Override
+  public int getVariantMeta(String varName) {
+    return variantNames.indexOf(varName);
+  }
+
+  @Override
+  public void forEachVariant(BiConsumer<Integer, String> action) {
+    this.forEachVariant(this.variantNames, action);
+  }
 
 }

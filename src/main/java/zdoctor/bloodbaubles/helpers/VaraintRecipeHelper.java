@@ -4,10 +4,10 @@ import net.minecraft.item.Item;
 
 public class VaraintRecipeHelper {
 
-	private Item item;
+  private Item item;
 
-	public VaraintRecipeHelper(Item item) {
-		this.item = item;
-	}
+  public VaraintRecipeHelper(Item item) {
+    this.item = item;
+  }
 
 }

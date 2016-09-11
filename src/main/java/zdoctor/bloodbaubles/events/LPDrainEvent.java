@@ -7,23 +7,23 @@ import zdoctor.bloodbaubles.token.NetworkDrainToken;
 
 public class LPDrainEvent extends SubEvent<ISubLPDrain> {
 
-	public LPDrainEvent() {
-		super();
-	}
+  public LPDrainEvent() {
+    super();
+  }
 
-	@SubscribeEvent(receiveCanceled = false)
-	public void LPDrain(ItemDrainNetworkEvent e) {
-		NetworkDrainToken token = new NetworkDrainToken(e);
-		REGISTRY.forEach((sub) -> {
-			if (e.isCanceled() && !sub.receiveCanceled())
-				return;
-			else
-				sub.onEvent(token);
-		});
-	}
+  @SubscribeEvent(receiveCanceled = false)
+  public void LPDrain(ItemDrainNetworkEvent e) {
+    NetworkDrainToken token = new NetworkDrainToken(e);
+    REGISTRY.forEach((sub) -> {
+      if (e.isCanceled() && !sub.receiveCanceled())
+        return;
+      else
+        sub.onEvent(token);
+    });
+  }
 
-	@Override
-	public boolean isSub(Object sub) {
-		return sub instanceof ISubLPDrain;
-	}
+  @Override
+  public boolean isSub(Object sub) {
+    return sub instanceof ISubLPDrain;
+  }
 }

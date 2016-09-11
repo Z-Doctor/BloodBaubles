@@ -16,31 +16,31 @@ import zdoctor.bloodbaubles.api.IAutoRegister;
  * @author Z_Doctor
  */
 public final class BaubleRegistry {
-	protected static ArrayList<IAutoRegister> REGISTRY = new ArrayList<>();
+  protected static ArrayList<IAutoRegister> REGISTRY = new ArrayList<>();
 
-	public static void registerBaubles() {
-		REGISTRY.forEach(bauble -> {
-			bauble.registerItem();
-		});
-	}
+  public static void registerBaubles() {
+    REGISTRY.forEach(bauble -> {
+      bauble.registerItem();
+    });
+  }
 
-	public static void registerBaubleRecipes() {
-		REGISTRY.forEach(bauble -> {
-			if (bauble instanceof IAutoRecipe) {
-				((IAutoRecipe) bauble).registerRecipe();
-			}
-		});
-	}
+  public static void registerBaubleRecipes() {
+    REGISTRY.forEach(bauble -> {
+      if (bauble instanceof IAutoRecipe) {
+        ((IAutoRecipe) bauble).registerRecipe();
+      }
+    });
+  }
 
-	@SideOnly(Side.CLIENT)
-	public static void registerRenders() {
-		REGISTRY.forEach(bauble -> {
-			bauble.registerRender();
-		});
-	}
+  @SideOnly(Side.CLIENT)
+  public static void registerRenders() {
+    REGISTRY.forEach(bauble -> {
+      bauble.registerRender();
+    });
+  }
 
-	public static void registerBauble(IBauble bauble) {
-		if (bauble instanceof IAutoRegister)
-			REGISTRY.add((IAutoRegister) bauble);
-	}
+  public static void registerBauble(IBauble bauble) {
+    if (bauble instanceof IAutoRegister)
+      REGISTRY.add((IAutoRegister) bauble);
+  }
 }
