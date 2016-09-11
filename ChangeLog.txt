@@ -14,5 +14,5 @@
 	+ Added SoulForgeRecipeHelper
 	+ Updated Textures and implementation for all rings
 	+ Fixed model json and visual tweaks (put a ring on you head: "/replaceitem entity @p slot.armor.head zbloodbaubles:BasicRing 1 4")
-	+ Priest once again bless your God's Gift for 40 Emeralds
+	+ Any Priest will bless a Inactive God's Gift for 40 Emeralds
 	
