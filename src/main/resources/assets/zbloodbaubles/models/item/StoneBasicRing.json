@@ -1,6 +1,6 @@
 {
 	"parent":"zbloodbaubles:item/Standard_Ring",
     "textures": {
-        "layer0":"zbloodbaubles:rings/IronRing"
+        "layer0":"zbloodbaubles:rings/StoneRing"
     }
 }

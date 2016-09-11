@@ -7,6 +7,7 @@ import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.ShapedRecipes;
+import net.minecraftforge.fml.common.FMLLog;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class RecipeHelper {
@@ -18,9 +19,22 @@ public class RecipeHelper {
 	private String layer2 = "";
 	private String layer3 = "";
 	private Map<Character, ItemStack> map = new HashMap<>(9);
+	private boolean registered = false;
 
 	public RecipeHelper(Item item) {
 		this(item, 0, true);
+	}
+	
+	public RecipeHelper(Block block) {
+		this(Item.getItemFromBlock(block));
+	}
+	
+	public RecipeHelper(Block block, int meta) {
+		this(Item.getItemFromBlock(block), meta);
+	}
+	
+	public RecipeHelper(Block block, boolean shaped) {
+		this(Item.getItemFromBlock(block), shaped);
 	}
 
 	public RecipeHelper(Item item, int meta) {
@@ -35,6 +49,21 @@ public class RecipeHelper {
 		this.result = item;
 		this.meta = meta;
 		this.shaped = shaped;
+	}
+	
+	public RecipeHelper(Block block, RecipeHelper recipeHelper) {
+		this(Item.getItemFromBlock(block), recipeHelper);
+	}
+	
+	public RecipeHelper(Item item, RecipeHelper recipeHelper) {
+		this.result = item;
+		this.meta = recipeHelper.meta;
+		this.shaped = recipeHelper.shaped;
+		this.amount = recipeHelper.amount;
+		this.layer1 = recipeHelper.layer1;
+		this.layer2 = recipeHelper.layer2;
+		this.layer3 = recipeHelper.layer3;
+		this.map = new HashMap<>(recipeHelper.map);
 	}
 
 	public void setMeta(int meta) {
@@ -105,22 +134,6 @@ public class RecipeHelper {
 				+ (this.layer3.length() > 0 ? 1 : 0);
 	}
 
-	private ItemStack[] getRecipeMatrix() {
-		char[] matrix = this.getMaxtrix();
-		System.out.println("Width: " + this.getWidth());
-		System.out.println("Height: " + this.getHeight());
-		System.out.println("Matrix: " + matrix.length);
-		ItemStack[] temp = new ItemStack[this.getWidth() * this.getHeight()];
-		for (int height = 0; height < this.getHeight(); height++) {
-			for (int width = 0; width < this.getWidth(); width++) {
-				ItemStack itemStack = this.map.get(matrix[height * this.getWidth() + width]);
-				System.out.println("Item: " + (itemStack == null ? "Empty" : itemStack.getItem().getClass().getName()));
-				temp[height + width] = itemStack;
-			}
-		}
-		return temp;
-	}
-
 	private char[] getMaxtrix() {
 		if (this.getHeight() >= 1 && this.layer1.length() < this.getWidth()) {
 			while (this.layer1.length() < this.getWidth())
@@ -137,8 +150,23 @@ public class RecipeHelper {
 		return (this.layer1 + this.layer2 + this.layer3).toCharArray();
 	}
 
-	public void registerRecipe() {
-		GameRegistry.addRecipe(this.getRecipe());
+	private ItemStack[] getRecipeMatrix() {
+		char[] matrix = this.getMaxtrix();
+		ItemStack[] temp = new ItemStack[this.getWidth() * this.getHeight()];
+		for (int height = 0; height < this.getHeight(); height++) {
+			for (int width = 0; width < this.getWidth(); width++) {
+				ItemStack itemStack = this.map.get(matrix[height * this.getWidth() + width]);
+				temp[height * this.getWidth() + width] = itemStack;
+			}
+		}
+		return temp;
 	}
 
+	public void registerRecipe() {
+		if (!this.registered) {
+			GameRegistry.addRecipe(this.getRecipe());
+			this.registered = true;
+		} else
+			FMLLog.getLogger().debug("Skipping: Recipe already registered for '" + this.result.getRegistryName() + "'");
+	}
 }

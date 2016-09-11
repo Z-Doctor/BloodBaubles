@@ -1,10 +1,18 @@
 2.0.0
 	+ Updated to 1.10
 	+ 1.8 Java syntax
-	+ Added TestRing, TestVariant and TestMultiRing to demonstrate implementation examples
 	+ Updated GodsGift
 	+ Added BaubleHelper class
 	+ Added functional api
 	+ Added EventRegistry and BaubleRegistry. Baubles and Events should be registered her.
 	+ Added EventTokens
 	+ Changed proxies. Added server proxy.
+	+ Added RecipeHelper and IAutoRecpe
+	+ Added EssenceRings
+	+ Update Lang file (English Only)
+	+ Added Basic Rings
+	+ Added SoulForgeRecipeHelper
+	+ Updated Textures and implementation for all rings
+	+ Fixed model json and visual tweaks (put a ring on you head: "/replaceitem entity @p slot.armor.head zbloodbaubles:BasicRing 1 4")
+	+ Priest once again bless your God's Gift for 40 Emeralds
+	

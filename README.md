@@ -15,3 +15,7 @@ The code should be readable. Plain and simple. I use Java 1.8 and Lymbda syntax 
 Ideally classes should be implemented in such a way that many items can be created with it. A perfect example are my BloodRing classes along with my BaubleRegistry and interface IAutoRegister. Those three objects make creating new items REALLY easy. Strive for something like that.
 #Happy Coding
 I know that this is a lot for a small project, but I want to make thse standards of all my new/current projects (old ones don't count). If you have any questions let me know. I'll try to help the best I can.
+#FAQ
+1. Will legacy version be supported?
+
+Yes. My hope is that my current code will be so flexible and independent that upgrading or making them backwards compatible will be easy with minimal effort (redefining a few methods)

@@ -7,7 +7,9 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import zdoctor.bloodbaubles.init.Events;
+import zdoctor.bloodbaubles.init.ModCreativeTabs;
 import zdoctor.bloodbaubles.init.Rings;
+import zdoctor.bloodbaubles.init.Tweaks;
 import zdoctor.bloodbaubles.proxy.CommonProxy;
 import zdoctor.bloodbaubles.registry.BaubleRegistry;
 import zdoctor.bloodbaubles.registry.EventRegistry;
@@ -32,8 +34,7 @@ public final class ModMain {
 
 	@EventHandler
 	public void init(FMLInitializationEvent e) {
-		CTabs.registerTabs();
-		// RecipeRegistry.initRecipes();
+		ModCreativeTabs.initTabs();
 		BaubleRegistry.registerBaubleRecipes();
 		proxy.init(e);
 	}
@@ -42,6 +43,7 @@ public final class ModMain {
 	public void postInit(FMLPostInitializationEvent e) {
 		Events.init();
 		EventRegistry.registerSubscibers();
+		Tweaks.initTweaks();
 		proxy.postInit(e);
 	}
 

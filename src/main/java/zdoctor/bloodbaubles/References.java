@@ -10,6 +10,9 @@ public final class References {
 	public static final String SERVER_PROXY = "zdoctor.bloodbaubles.proxy.ServerProxy";
 	public static final String RESOURCE_ID = "inventory";
 	
+	// Integer Constants
+	public static final int Blessing_Cost = 40;
+	
 	// NBTag Constants
 	public static final String MAX_ESSENCE = "MaxLP";
 	public static final String CURRENT_ESSENCE = "CurLp";
@@ -26,5 +29,4 @@ public final class References {
 	public static final String BASICRING = "BasicRing";
 
 	public static final String WEAKESSENCE = "WeakEssence";
-
 }

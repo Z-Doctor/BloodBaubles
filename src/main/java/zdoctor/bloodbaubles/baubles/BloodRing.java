@@ -15,8 +15,8 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.world.World;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.common.registry.GameRegistry;
-import zdoctor.bloodbaubles.CTabs;
 import zdoctor.bloodbaubles.api.IAutoRegister;
+import zdoctor.bloodbaubles.init.ModCreativeTabs;
 import zdoctor.bloodbaubles.registry.BaubleRegistry;
 
 /**
@@ -33,7 +33,7 @@ public abstract class BloodRing extends Item implements IBauble, IAutoRegister {
 		this.setRegistryName(nameIn);
 		this.setUnlocalizedName(nameIn);
 		this.setMaxStackSize(1);
-		this.setCreativeTab(CTabs.BloodRings);
+		this.setCreativeTab(ModCreativeTabs.BloodRings);
 
 		BaubleRegistry.registerBauble(this);
 	}

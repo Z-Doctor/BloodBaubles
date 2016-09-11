@@ -11,7 +11,7 @@ import zdoctor.bloodbaubles.baubles.rings.WeakEssenceRing;
  * 
  * @author Z_Doctor
  */
-public class Rings {
+public final class Rings {
 	public static Item BasicRing = new BasicRing();
 	public static Item WeakEssenceRing = new WeakEssenceRing();
 	public static Item GodsGift = new GodsGift();

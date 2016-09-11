@@ -5,7 +5,7 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import zdoctor.bloodbaubles.registry.BaubleRegistry;
 
-public class ClientProxy implements CommonProxy {
+public final class ClientProxy implements CommonProxy {
 	@Override
 	public void preInit(FMLPreInitializationEvent e) {
 		BaubleRegistry.registerRenders();

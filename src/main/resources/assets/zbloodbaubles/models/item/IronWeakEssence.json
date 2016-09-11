@@ -1,7 +1,7 @@
 {
-    "parent":"zbloodbaubles:item/standard_item",
+	"parent":"zbloodbaubles:item/Standard_Ring",
     "textures": {
         "layer0":"zbloodbaubles:rings/IronRing",
-        "layer1":"zbloodbaubles:gemstones/weakBloodOrb"
+        "layer1":"zbloodbaubles:gemstones/WeakBloodOrb"
     }
 }
