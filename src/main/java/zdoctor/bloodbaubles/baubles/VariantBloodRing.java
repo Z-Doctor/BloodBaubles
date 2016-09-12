@@ -12,6 +12,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.ModelLoader;
 import zdoctor.bloodbaubles.api.IVariant;
+import zdoctor.bloodbaubles.baubles.BloodBauble.BloodRing;
 import zdoctor.bloodbaubles.baubles.rings.GodsGift;
 
 /**
@@ -24,7 +25,9 @@ import zdoctor.bloodbaubles.baubles.rings.GodsGift;
  * @author Z_Doctor
  */
 public abstract class VariantBloodRing extends BloodRing implements IVariant {
+
   List<ModelResourceLocation> variants = new ArrayList<>();
+
   List<String> variantNames = new ArrayList<>();
 
   public VariantBloodRing(String nameIn) {
@@ -34,25 +37,24 @@ public abstract class VariantBloodRing extends BloodRing implements IVariant {
 
   @Override
   public String getUnlocalizedName(ItemStack stack) {
-    return "item." + getVariantName(stack.getMetadata())
-        + this.getRegistryName().getResourcePath();
+    return "item." + getVariantName(stack.getMetadata()) + this.getRegistryName().getResourcePath();
   }
 
   @Override
-  public void getSubItems(Item itemIn, CreativeTabs tab,
-      List<ItemStack> subItems) {
-    this.variantNames.forEach((varName) -> {
-      subItems.add(new ItemStack(this, 1, this.variantNames.indexOf(varName)));
+  public void getSubItems(Item itemIn, CreativeTabs tab, List<ItemStack> subItems) {
+    this.variantNames.forEach(varName -> {
+      if (varName != null)
+        subItems.add(new ItemStack(this, 1, this.variantNames.indexOf(varName)));
     });
   }
 
   @Override
-  public void registerItem() {
-    super.registerItem();
-    variantNames.forEach((varName) -> {
-      this.variants.add(
-          new ModelResourceLocation(this.getRegistryName().getResourceDomain()
-              + ":" + varName + this.getRegistryName().getResourcePath()));
+  public void registerToGame() {
+    super.registerToGame();
+    variantNames.forEach(varName -> {
+      if (varName != null)
+        this.variants.add(new ModelResourceLocation(this.getRegistryName().getResourceDomain() + ":"
+            + varName + this.getRegistryName().getResourcePath()));
     });
     ModelBakery.registerItemVariants(this,
         this.variants.toArray(new ResourceLocation[this.variants.size()]));
@@ -60,9 +62,8 @@ public abstract class VariantBloodRing extends BloodRing implements IVariant {
 
   @Override
   public void registerRender() {
-    this.variants.forEach((variant) -> {
-      ModelLoader.setCustomModelResourceLocation(this,
-          this.variants.indexOf(variant), variant);
+    this.variants.forEach(variant -> {
+      ModelLoader.setCustomModelResourceLocation(this, this.variants.indexOf(variant), variant);
     });
   }
 
@@ -73,6 +74,11 @@ public abstract class VariantBloodRing extends BloodRing implements IVariant {
 
   @Override
   public void addVariant(String varName, int meta) {
+    if (this.variantNames.size() - 1 < meta) {
+      this.addVariant(null);
+      while (this.variantNames.size() < meta)
+        this.addVariant(null);
+    }
     this.variantNames.set(meta, varName);
   }
 
@@ -90,5 +96,4 @@ public abstract class VariantBloodRing extends BloodRing implements IVariant {
   public void forEachVariant(BiConsumer<Integer, String> action) {
     this.forEachVariant(this.variantNames, action);
   }
-
 }

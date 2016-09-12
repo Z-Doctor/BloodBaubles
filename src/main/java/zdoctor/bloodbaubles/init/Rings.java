@@ -1,6 +1,7 @@
 package zdoctor.bloodbaubles.init;
 
 import net.minecraft.item.Item;
+import zdoctor.bloodbaubles.baubles.rings.ApprenticeEssenceRing;
 import zdoctor.bloodbaubles.baubles.rings.BasicRing;
 import zdoctor.bloodbaubles.baubles.rings.GodsGift;
 import zdoctor.bloodbaubles.baubles.rings.WeakEssenceRing;
@@ -12,10 +13,14 @@ import zdoctor.bloodbaubles.baubles.rings.WeakEssenceRing;
  * @author Z_Doctor
  */
 public final class Rings {
-  public static Item BasicRing = new BasicRing();
-  public static Item WeakEssenceRing = new WeakEssenceRing();
-  public static Item GodsGift = new GodsGift();
 
-  public static void init() {
-  }
+  public static final Item BasicRing = new BasicRing();
+
+  public static final Item WeakEssenceRing = new WeakEssenceRing();
+
+  public static final Item ApprenticeEssenceRing = new ApprenticeEssenceRing();
+
+  public static final Item GodsGift = new GodsGift();
+
+  public static void initRings() {}
 }

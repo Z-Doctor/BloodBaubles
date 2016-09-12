@@ -2,7 +2,7 @@ package zdoctor.bloodbaubles.events;
 
 import WayofTime.bloodmagic.api.event.SoulNetworkEvent.ItemDrainNetworkEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import zdoctor.bloodbaubles.api.events.ISubLPDrain;
+import zdoctor.bloodbaubles.api.events.ISubLPNetworkEvent.ISubLPDrain;
 import zdoctor.bloodbaubles.token.NetworkDrainToken;
 
 public class LPDrainEvent extends SubEvent<ISubLPDrain> {

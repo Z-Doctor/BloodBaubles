@@ -10,7 +10,8 @@ import zdoctor.bloodbaubles.registry.BaubleRegistry;
  * @author Z_Doctor
  */
 public interface IAutoRegister {
-  public void registerItem();
+
+  public void registerToGame();
 
   public void registerRender();
 }

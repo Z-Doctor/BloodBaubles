@@ -5,7 +5,8 @@ import zdoctor.bloodbaubles.events.LPDrainEvent;
 import zdoctor.bloodbaubles.events.PlayerDeathEvent;
 
 public final class Events {
-  public static void init() {
+
+  public static void createEvents() {
     new PlayerDeathEvent();
     new LPDrainEvent();
     new ItemCraftedEvent();

@@ -11,5 +11,4 @@ public interface CommonProxy {
   public void init(FMLInitializationEvent e);
 
   public void postInit(FMLPostInitializationEvent e);
-
 }

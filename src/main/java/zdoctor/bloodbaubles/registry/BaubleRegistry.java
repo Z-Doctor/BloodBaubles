@@ -1,12 +1,10 @@
 package zdoctor.bloodbaubles.registry;
 
 import java.util.ArrayList;
+import java.util.function.Consumer;
 
 import baubles.api.IBauble;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
-import zdoctor.bloodbaubles.api.IAutoRecipe;
-import zdoctor.bloodbaubles.api.IAutoRegister;
+import zdoctor.bloodbaubles.baubles.BloodBauble;
 
 /**
  * An ArrayList<IAutoReister> is created and new objects are added through
@@ -16,31 +14,19 @@ import zdoctor.bloodbaubles.api.IAutoRegister;
  * @author Z_Doctor
  */
 public final class BaubleRegistry {
-  protected static ArrayList<IAutoRegister> REGISTRY = new ArrayList<>();
 
-  public static void registerBaubles() {
-    REGISTRY.forEach(bauble -> {
-      bauble.registerItem();
-    });
-  }
-
-  public static void registerBaubleRecipes() {
-    REGISTRY.forEach(bauble -> {
-      if (bauble instanceof IAutoRecipe) {
-        ((IAutoRecipe) bauble).registerRecipe();
-      }
-    });
-  }
-
-  @SideOnly(Side.CLIENT)
-  public static void registerRenders() {
-    REGISTRY.forEach(bauble -> {
-      bauble.registerRender();
-    });
-  }
+  private static ArrayList<IBauble> Bauble_REGISTRY = new ArrayList<>();
 
   public static void registerBauble(IBauble bauble) {
-    if (bauble instanceof IAutoRegister)
-      REGISTRY.add((IAutoRegister) bauble);
+    Bauble_REGISTRY.add(bauble);
+  }
+
+  public static void forEach(Consumer<IBauble> action) {
+    for (IBauble bauble : Bauble_REGISTRY)
+      action.accept(bauble);
+  }
+
+  public static int indexOf(Object o) {
+    return Bauble_REGISTRY.indexOf(o);
   }
 }

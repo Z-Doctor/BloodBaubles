@@ -11,16 +11,24 @@ import WayofTime.bloodmagic.registry.ModItems;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import zdoctor.bloodbaubles.baubles.EssenceBloodRing.CustomTartaricRecipe;
 
 public class SoulForgeRecipeHelper {
 
   private final Item result;
+
   private int meta;
+
   private int amount = 1;
+
   private int minSouls = 0;
+
   private int drain = 0;
+
   private List<ItemStack> components = new ArrayList<>();
+
   private boolean registered = false;
+
   private ItemStack minGem = new ItemStack(ModItems.soulGem);
 
   public SoulForgeRecipeHelper(Item item) {
@@ -40,13 +48,11 @@ public class SoulForgeRecipeHelper {
     this.meta = meta;
   }
 
-  public SoulForgeRecipeHelper(Block block,
-      SoulForgeRecipeHelper soulForgeRecipeHelper) {
+  public SoulForgeRecipeHelper(Block block, SoulForgeRecipeHelper soulForgeRecipeHelper) {
     this(Item.getItemFromBlock(block), soulForgeRecipeHelper);
   }
 
-  public SoulForgeRecipeHelper(Item item,
-      SoulForgeRecipeHelper soulForgeRecipeHelper) {
+  public SoulForgeRecipeHelper(Item item, SoulForgeRecipeHelper soulForgeRecipeHelper) {
     this.result = item;
     this.meta = soulForgeRecipeHelper.meta;
     this.amount = soulForgeRecipeHelper.amount;
@@ -89,15 +95,33 @@ public class SoulForgeRecipeHelper {
     return new ItemStack(this.result, this.amount, this.meta);
   }
 
+  public int getMinimumSouls() {
+    return this.minSouls;
+  }
+
+  public int getDrain() {
+    return this.drain;
+  }
+
+  public Object[] getComponents() {
+    return this.components.toArray();
+  }
+
   public TartaricForgeRecipe getRecipe() {
-    return new TartaricForgeRecipe(
-        new ItemStack(this.result, this.amount, this.meta), this.minSouls,
-        this.drain, this.components.toArray());
+    return new TartaricForgeRecipe(new ItemStack(this.result, this.amount, this.meta),
+        this.minSouls, this.drain, this.components.toArray());
   }
 
   public void registerRecipe() {
     if (!this.registered) {
       TartaricForgeRecipeRegistry.registerRecipe(this.getRecipe());
+      this.registered = true;
+    }
+  }
+
+  public void registerRecipe(CustomTartaricRecipe customRecipe) {
+    if (!this.registered) {
+      TartaricForgeRecipeRegistry.registerRecipe(customRecipe);
       this.registered = true;
     }
   }
@@ -111,8 +135,6 @@ public class SoulForgeRecipeHelper {
   }
 
   public static double getMaxWill(ItemStack itemStack) {
-    return ((ItemSoulGem) ModItems.soulGem)
-        .getMaxWill(EnumDemonWillType.DEFAULT, itemStack);
+    return ((ItemSoulGem) ModItems.soulGem).getMaxWill(EnumDemonWillType.DEFAULT, itemStack);
   }
-
 }

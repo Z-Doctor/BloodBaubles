@@ -27,23 +27,28 @@ public class ItemCraftedEvent extends SubEvent<ISubCrafting> {
   }
 
   @SubscribeEvent(receiveCanceled = false)
-  public void orbCrafted(
-      net.minecraftforge.fml.common.gameevent.PlayerEvent.ItemCraftedEvent e) {
+  public void orbCrafted(net.minecraftforge.fml.common.gameevent.PlayerEvent.ItemCraftedEvent e) {
     if (!e.player.getEntityWorld().isRemote)
       if (e.crafting.getItem() instanceof EssenceBloodRing) {
         clearGrid(e.craftMatrix);
       }
   }
 
+  // @SubscribeEvent(receiveCanceled = false)
+  // public void orbCrafted( e) {
+  // TartaricForgeRecipeRegistry.a
+  // if (!e.player.getEntityWorld().isRemote)
+  // if (e.crafting.getItem() instanceof EssenceBloodRing) {
+  // clearGrid(e.craftMatrix);
+  // }
+  // }
   public static void clearGrid(IInventory craftMatrix) {
     removeItemFromGrid(craftMatrix, Object.class);
   }
 
-  public static void removeItemFromGrid(IInventory craftMatrix,
-      Class<?> check) {
+  public static void removeItemFromGrid(IInventory craftMatrix, Class<?> check) {
     cycleThroughGrid(craftMatrix,
-        itemStack -> itemStack != null
-            && check.isAssignableFrom(itemStack.getItem().getClass()),
+        itemStack -> itemStack != null && check.isAssignableFrom(itemStack.getItem().getClass()),
         slotNumber -> craftMatrix.setInventorySlotContents(slotNumber, null));
   }
 
@@ -54,8 +59,8 @@ public class ItemCraftedEvent extends SubEvent<ISubCrafting> {
    * @param modfier
    * @param block
    */
-  public static void cycleThroughGrid(IInventory craftMatrix,
-      Predicate<ItemStack> modfier, Consumer<Integer> block) {
+  public static void cycleThroughGrid(IInventory craftMatrix, Predicate<ItemStack> modfier,
+      Consumer<Integer> block) {
     for (int i = 0; i < craftMatrix.getSizeInventory(); i++) {
       if (modfier.test(craftMatrix.getStackInSlot(i))) {
         block.accept(i);

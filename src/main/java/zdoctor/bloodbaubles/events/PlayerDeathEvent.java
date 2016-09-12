@@ -4,7 +4,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import zdoctor.bloodbaubles.api.events.ISubPlayerDeath;
-import zdoctor.bloodbaubles.token.PlayerDeathToken;
+import zdoctor.bloodbaubles.token.PlayerEventToken;
 
 public class PlayerDeathEvent extends SubEvent<ISubPlayerDeath> {
 
@@ -16,7 +16,7 @@ public class PlayerDeathEvent extends SubEvent<ISubPlayerDeath> {
   public void deathEvent(LivingHurtEvent e) {
     if (e.getEntity() instanceof EntityPlayer && e.isCancelable()) {
       if (e.getEntityLiving().getHealth() - e.getAmount() <= 0) {
-        PlayerDeathToken token = new PlayerDeathToken(e);
+        PlayerEventToken.DeathToken token = new PlayerEventToken.DeathToken(e);
         REGISTRY.forEach(sub -> {
           if (e.isCanceled() && !sub.receiveCanceled())
             return;

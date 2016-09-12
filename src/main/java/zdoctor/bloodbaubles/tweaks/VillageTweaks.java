@@ -1,6 +1,5 @@
 package zdoctor.bloodbaubles.tweaks;
 
-import java.util.List;
 import java.util.Random;
 import java.util.function.Consumer;
 
@@ -17,11 +16,13 @@ import zdoctor.bloodbaubles.References;
 import zdoctor.bloodbaubles.init.Rings;
 
 public class VillageTweaks {
+
   public VillageTweaks() {
     new PriestBlessing();
   }
 
   private static class PriestBlessing implements ITradeList {
+
     public PriestBlessing() {
       System.out.println("Blessing");
       forEachProfession(job -> {
@@ -33,8 +34,7 @@ public class VillageTweaks {
     }
 
     @Override
-    public void modifyMerchantRecipeList(MerchantRecipeList recipeList,
-        Random random) {
+    public void modifyMerchantRecipeList(MerchantRecipeList recipeList, Random random) {
       recipeList.add(new MerchantRecipe(new ItemStack(Rings.GodsGift, 1, 0),
           new ItemStack(Items.EMERALD, References.Blessing_Cost, 0),
           new ItemStack(Rings.GodsGift, 1, 1)));

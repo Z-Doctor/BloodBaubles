@@ -9,7 +9,9 @@ import zdoctor.bloodbaubles.baubles.EssenceBloodRing;
 public class EssenceHelper {
 
   private ItemStack itemStack;
+
   private EssenceBloodRing ring;
+
   private NBTTagCompound tagCompound;
 
   public EssenceHelper(ItemStack itemStack) {
@@ -19,8 +21,7 @@ public class EssenceHelper {
       if (!itemStack.hasTagCompound()) {
         this.tagCompound = new NBTTagCompound();
         itemStack.setTagCompound(this.tagCompound);
-        this.tagCompound.setInteger(References.MAX_ESSENCE,
-            this.ring.getMaxEssence(itemStack));
+        this.tagCompound.setInteger(References.MAX_ESSENCE, this.ring.getMaxEssence(itemStack));
         this.tagCompound.setInteger(References.CURRENT_ESSENCE, 0);
       } else
         this.tagCompound = itemStack.getTagCompound();

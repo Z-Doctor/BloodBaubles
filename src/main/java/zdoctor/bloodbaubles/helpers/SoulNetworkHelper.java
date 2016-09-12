@@ -8,7 +8,9 @@ import net.minecraft.entity.player.EntityPlayer;
 public class SoulNetworkHelper {
 
   public EntityPlayer player;
+
   public BMWorldSavedData bMWorld;
+
   private SoulNetwork soulNetwork;
 
   public SoulNetworkHelper(EntityPlayer player) {
@@ -50,5 +52,4 @@ public class SoulNetworkHelper {
   public boolean hasEnough(int drainAmount) {
     return this.getCurrentEssence() >= drainAmount;
   }
-
 }

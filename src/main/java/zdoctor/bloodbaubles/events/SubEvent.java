@@ -16,6 +16,7 @@ import zdoctor.bloodbaubles.registry.EventRegistry;
  * @author Z_Doctor
  */
 public abstract class SubEvent<T extends ISubEvent> {
+
   protected final ArrayList<T> REGISTRY = new ArrayList<>();
 
   public SubEvent() {
@@ -33,5 +34,4 @@ public abstract class SubEvent<T extends ISubEvent> {
     if (this.isSub(sub))
       this.REGISTRY.add((T) sub);
   }
-
 }

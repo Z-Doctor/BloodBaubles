@@ -13,6 +13,7 @@ import net.minecraft.item.ItemStack;
 public class BaubleHelper {
 
   private EntityPlayer player;
+
   private InventoryBaubles inventory;
 
   public BaubleHelper(EntityPlayer player) {

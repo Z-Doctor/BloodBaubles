@@ -11,21 +11,19 @@ import zdoctor.bloodbaubles.enums.EnumRingMaterial;
 import zdoctor.bloodbaubles.helpers.BaubleHelper;
 import zdoctor.bloodbaubles.helpers.RecipeHelper;
 import zdoctor.bloodbaubles.init.Rings;
-import zdoctor.bloodbaubles.token.PlayerDeathToken;
+import zdoctor.bloodbaubles.token.PlayerEventToken;
 
-public final class GodsGift extends VariantBloodRing
-    implements
-      ISubPlayerDeath<PlayerDeathToken>,
-      IAutoRecipe {
+public final class GodsGift extends VariantBloodRing implements ISubPlayerDeath<PlayerEventToken.DeathToken>, IAutoRecipe {
+
   public GodsGift() {
     super(References.GODSGIFT);
-    this.addVariant(References.GODSGIFT_INACTIVE);
-    this.addVariant(References.GODSGIFT_ACTIVE);
+    this.addVariant(References.GODSGIFT_INACTIVE, State.Inactive.getMeta());
+    this.addVariant(References.GODSGIFT_ACTIVE, State.Active.getMeta());
   }
 
   @Override
-  public void onEvent(PlayerDeathToken token) {
-    BaubleHelper bH = new BaubleHelper(token.player);
+  public void onEvent(PlayerEventToken.DeathToken token) {
+    BaubleHelper bH = new BaubleHelper(token.entity);
     if (bH.isWearing(this.varientStackItem(References.GODSGIFT_ACTIVE))) {
       if (token.source != DamageSource.outOfWorld) {
         if (bH.replaceBauble(this.varientStackItem(References.GODSGIFT_ACTIVE),
@@ -42,10 +40,23 @@ public final class GodsGift extends VariantBloodRing
   public void registerRecipe() {
     RecipeHelper rH = new RecipeHelper(this);
     rH.define('n', Items.NETHER_STAR);
-    rH.define('r',
-        new ItemStack(Rings.BasicRing, 1, EnumRingMaterial.Gold.getMeta()));
+    rH.define('r', new ItemStack(Rings.BasicRing, 1, EnumRingMaterial.Gold.getMeta()));
     rH.setLayer1("n");
     rH.setLayer2("r");
     rH.registerRecipe();
+  }
+
+  public static enum State {
+    Active(1), Inactive(0);
+
+    private int meta;
+
+    private State(int meta) {
+      this.meta = meta;
+    }
+
+    public int getMeta() {
+      return this.meta;
+    }
   }
 }

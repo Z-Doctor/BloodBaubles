@@ -11,14 +11,23 @@ import net.minecraftforge.fml.common.FMLLog;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class RecipeHelper {
+
   private final Item result;
+
   private int meta;
+
   private boolean shaped;
+
   private int amount = 1;
+
   private String layer1 = "";
+
   private String layer2 = "";
+
   private String layer3 = "";
+
   private Map<Character, ItemStack> map = new HashMap<>(9);
+
   private boolean registered = false;
 
   public RecipeHelper(Item item) {
@@ -120,20 +129,18 @@ public class RecipeHelper {
 
   public ShapedRecipes getRecipe() {
     if (this.isShaped())
-      return new ShapedRecipes(this.getWidth(), this.getHeight(),
-          this.getRecipeMatrix(), this.getResult());
+      return new ShapedRecipes(this.getWidth(), this.getHeight(), this.getRecipeMatrix(),
+          this.getResult());
     else
       return null;
   }
 
   private int getWidth() {
-    return Math.max(this.layer1.length(),
-        Math.max(this.layer2.length(), this.layer3.length()));
+    return Math.max(this.layer1.length(), Math.max(this.layer2.length(), this.layer3.length()));
   }
 
   private int getHeight() {
-    return (this.layer1.length() > 0 ? 1 : 0)
-        + (this.layer2.length() > 0 ? 1 : 0)
+    return (this.layer1.length() > 0 ? 1 : 0) + (this.layer2.length() > 0 ? 1 : 0)
         + (this.layer3.length() > 0 ? 1 : 0);
   }
 
@@ -158,8 +165,7 @@ public class RecipeHelper {
     ItemStack[] temp = new ItemStack[this.getWidth() * this.getHeight()];
     for (int height = 0; height < this.getHeight(); height++) {
       for (int width = 0; width < this.getWidth(); width++) {
-        ItemStack itemStack = this.map
-            .get(matrix[height * this.getWidth() + width]);
+        ItemStack itemStack = this.map.get(matrix[height * this.getWidth() + width]);
         temp[height * this.getWidth() + width] = itemStack;
       }
     }
@@ -171,7 +177,7 @@ public class RecipeHelper {
       GameRegistry.addRecipe(this.getRecipe());
       this.registered = true;
     } else
-      FMLLog.getLogger().debug("Skipping: Recipe already registered for '"
-          + this.result.getRegistryName() + "'");
+      FMLLog.getLogger()
+          .debug("Skipping: Recipe already registered for '" + this.result.getRegistryName() + "'");
   }
 }

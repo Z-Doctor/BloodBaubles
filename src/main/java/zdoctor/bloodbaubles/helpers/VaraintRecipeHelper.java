@@ -9,5 +9,4 @@ public class VaraintRecipeHelper {
   public VaraintRecipeHelper(Item item) {
     this.item = item;
   }
-
 }
