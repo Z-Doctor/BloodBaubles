@@ -11,8 +11,8 @@ import zdoctor.bloodbaubles.api.IAutoRegister;
 import zdoctor.bloodbaubles.registry.ZGameRegistry;
 
 public class AutoBlock extends Block implements IAutoRegister {
-	
-	private final ItemBlock item;
+
+  private final ItemBlock item;
 
   public AutoBlock(String nameIn, Material material) {
     super(material);

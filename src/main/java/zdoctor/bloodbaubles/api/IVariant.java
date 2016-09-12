@@ -13,7 +13,8 @@ public interface IVariant {
 
   void addVariant(String varName, int meta);
 
-  default void forEachVariant(List<String> varNames, BiConsumer<Integer, String> action) {
+  default void forEachVariant(List<String> varNames,
+      BiConsumer<Integer, String> action) {
     for (String name : varNames) {
       action.accept(varNames.indexOf(name), name);
     }

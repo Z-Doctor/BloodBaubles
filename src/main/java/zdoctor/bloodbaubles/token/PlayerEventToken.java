@@ -5,7 +5,9 @@ import net.minecraft.util.DamageSource;
 import net.minecraftforge.event.entity.EntityEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 
-public abstract class PlayerEventToken<T extends EntityEvent> extends EntityEventToken<T, EntityPlayer> {
+public abstract class PlayerEventToken<T extends EntityEvent>
+    extends
+      EntityEventToken<T, EntityPlayer> {
 
   public PlayerEventToken(T event) {
     super(event);

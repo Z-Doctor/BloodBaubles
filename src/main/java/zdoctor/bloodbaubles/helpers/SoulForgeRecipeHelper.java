@@ -48,11 +48,13 @@ public class SoulForgeRecipeHelper {
     this.meta = meta;
   }
 
-  public SoulForgeRecipeHelper(Block block, SoulForgeRecipeHelper soulForgeRecipeHelper) {
+  public SoulForgeRecipeHelper(Block block,
+      SoulForgeRecipeHelper soulForgeRecipeHelper) {
     this(Item.getItemFromBlock(block), soulForgeRecipeHelper);
   }
 
-  public SoulForgeRecipeHelper(Item item, SoulForgeRecipeHelper soulForgeRecipeHelper) {
+  public SoulForgeRecipeHelper(Item item,
+      SoulForgeRecipeHelper soulForgeRecipeHelper) {
     this.result = item;
     this.meta = soulForgeRecipeHelper.meta;
     this.amount = soulForgeRecipeHelper.amount;
@@ -108,8 +110,9 @@ public class SoulForgeRecipeHelper {
   }
 
   public TartaricForgeRecipe getRecipe() {
-    return new TartaricForgeRecipe(new ItemStack(this.result, this.amount, this.meta),
-        this.minSouls, this.drain, this.components.toArray());
+    return new TartaricForgeRecipe(
+        new ItemStack(this.result, this.amount, this.meta), this.minSouls,
+        this.drain, this.components.toArray());
   }
 
   public void registerRecipe() {
@@ -135,6 +138,7 @@ public class SoulForgeRecipeHelper {
   }
 
   public static double getMaxWill(ItemStack itemStack) {
-    return ((ItemSoulGem) ModItems.soulGem).getMaxWill(EnumDemonWillType.DEFAULT, itemStack);
+    return ((ItemSoulGem) ModItems.soulGem)
+        .getMaxWill(EnumDemonWillType.DEFAULT, itemStack);
   }
 }

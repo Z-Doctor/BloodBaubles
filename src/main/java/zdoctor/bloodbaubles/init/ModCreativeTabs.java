@@ -7,7 +7,8 @@ import zdoctor.bloodbaubles.baubles.rings.GodsGift;
 
 public final class ModCreativeTabs {
 
-  public static final CreativeTabs BloodRings = new CreativeTabs("BloodBaubles") {
+  public static final CreativeTabs BloodRings = new CreativeTabs(
+      "BloodBaubles") {
 
     @Override
     public ItemStack getIconItemStack() {
@@ -20,5 +21,6 @@ public final class ModCreativeTabs {
     };
   };
 
-  public static void initTabs() {}
+  public static void initTabs() {
+  }
 }

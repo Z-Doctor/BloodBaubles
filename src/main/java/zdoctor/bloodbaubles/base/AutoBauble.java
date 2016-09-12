@@ -27,15 +27,17 @@ public abstract class AutoBauble extends AutoItem implements IBauble {
   }
 
   @Override
-  public ActionResult<ItemStack> onItemRightClick(ItemStack itemStackIn, World worldIn,
-      EntityPlayer playerIn, EnumHand hand) {
+  public ActionResult<ItemStack> onItemRightClick(ItemStack itemStackIn,
+      World worldIn, EntityPlayer playerIn, EnumHand hand) {
     if (!worldIn.isRemote) {
       InventoryBaubles baubles = PlayerHandler.getPlayerBaubles(playerIn);
       for (int i = 0; i < baubles.getSizeInventory(); i++) {
-        if (baubles.getStackInSlot(i) == null && baubles.isItemValidForSlot(i, itemStackIn)) {
+        if (baubles.getStackInSlot(i) == null
+            && baubles.isItemValidForSlot(i, itemStackIn)) {
           baubles.setInventorySlotContents(i, itemStackIn.copy());
           if (!playerIn.capabilities.isCreativeMode) {
-            playerIn.inventory.setInventorySlotContents(playerIn.inventory.currentItem, null);
+            playerIn.inventory
+                .setInventorySlotContents(playerIn.inventory.currentItem, null);
           }
           onEquipped(itemStackIn, playerIn);
           break;
@@ -56,10 +58,12 @@ public abstract class AutoBauble extends AutoItem implements IBauble {
   }
 
   @Override
-  public void onUnequipped(ItemStack itemStackIn, EntityLivingBase playerIn) {}
+  public void onUnequipped(ItemStack itemStackIn, EntityLivingBase playerIn) {
+  }
 
   @Override
-  public void onWornTick(ItemStack itemStackIn, EntityLivingBase playerIn) {}
+  public void onWornTick(ItemStack itemStackIn, EntityLivingBase playerIn) {
+  }
 
   @Override
   public void onEquipped(ItemStack itemStackIn, EntityLivingBase playerIn) {

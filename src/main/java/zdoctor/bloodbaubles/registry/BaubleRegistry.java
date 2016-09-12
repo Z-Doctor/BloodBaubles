@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.function.Consumer;
 
 import baubles.api.IBauble;
-import zdoctor.bloodbaubles.baubles.BloodBauble;
 
 /**
  * An ArrayList<IAutoReister> is created and new objects are added through

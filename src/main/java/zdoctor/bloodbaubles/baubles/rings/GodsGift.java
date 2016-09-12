@@ -13,7 +13,10 @@ import zdoctor.bloodbaubles.helpers.RecipeHelper;
 import zdoctor.bloodbaubles.init.Rings;
 import zdoctor.bloodbaubles.token.PlayerEventToken;
 
-public final class GodsGift extends VariantBloodRing implements ISubPlayerDeath<PlayerEventToken.DeathToken>, IAutoRecipe {
+public final class GodsGift extends VariantBloodRing
+    implements
+      ISubPlayerDeath<PlayerEventToken.DeathToken>,
+      IAutoRecipe {
 
   public GodsGift() {
     super(References.GODSGIFT);
@@ -40,7 +43,8 @@ public final class GodsGift extends VariantBloodRing implements ISubPlayerDeath<
   public void registerRecipe() {
     RecipeHelper rH = new RecipeHelper(this);
     rH.define('n', Items.NETHER_STAR);
-    rH.define('r', new ItemStack(Rings.BasicRing, 1, EnumRingMaterial.Gold.getMeta()));
+    rH.define('r',
+        new ItemStack(Rings.BasicRing, 1, EnumRingMaterial.Gold.getMeta()));
     rH.setLayer1("n");
     rH.setLayer2("r");
     rH.registerRecipe();

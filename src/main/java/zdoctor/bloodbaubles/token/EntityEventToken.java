@@ -6,7 +6,9 @@ import net.minecraft.util.DamageSource;
 import net.minecraftforge.event.entity.EntityEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 
-public abstract class EntityEventToken<T extends EntityEvent, S extends Entity> extends EventToken<T> {
+public abstract class EntityEventToken<T extends EntityEvent, S extends Entity>
+    extends
+      EventToken<T> {
 
   public final S entity;
 
@@ -15,7 +17,9 @@ public abstract class EntityEventToken<T extends EntityEvent, S extends Entity> 
     this.entity = (S) event.getEntity();
   }
 
-  public static class EntityDamageToken<E extends EntityLiving> extends EntityEventToken<LivingHurtEvent, E> {
+  public static class EntityDamageToken<E extends EntityLiving>
+      extends
+        EntityEventToken<LivingHurtEvent, E> {
 
     public final DamageSource source;
 

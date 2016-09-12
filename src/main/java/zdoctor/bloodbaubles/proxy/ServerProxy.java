@@ -7,11 +7,14 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 public final class ServerProxy implements CommonProxy {
 
   @Override
-  public void preInit(FMLPreInitializationEvent e) {}
+  public void preInit(FMLPreInitializationEvent e) {
+  }
 
   @Override
-  public void init(FMLInitializationEvent e) {}
+  public void init(FMLInitializationEvent e) {
+  }
 
   @Override
-  public void postInit(FMLPostInitializationEvent e) {}
+  public void postInit(FMLPostInitializationEvent e) {
+  }
 }

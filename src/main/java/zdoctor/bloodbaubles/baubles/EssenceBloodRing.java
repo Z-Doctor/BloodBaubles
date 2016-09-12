@@ -13,8 +13,8 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.world.World;
-import zdoctor.bloodbaubles.api.events.ISubLPNetworkEvent.ISubLPDrain;
 import zdoctor.bloodbaubles.api.IAutoRecipe;
+import zdoctor.bloodbaubles.api.events.ISubLPNetworkEvent.ISubLPDrain;
 import zdoctor.bloodbaubles.enums.EnumRingMaterial;
 import zdoctor.bloodbaubles.helpers.BaubleHelper;
 import zdoctor.bloodbaubles.helpers.EssenceHelper;
@@ -23,7 +23,10 @@ import zdoctor.bloodbaubles.helpers.SoulNetworkHelper;
 import zdoctor.bloodbaubles.init.Rings;
 import zdoctor.bloodbaubles.token.NetworkDrainToken;
 
-public abstract class EssenceBloodRing extends MaterialBloodRing implements ISubLPDrain, IAutoRecipe {
+public abstract class EssenceBloodRing extends MaterialBloodRing
+    implements
+      ISubLPDrain,
+      IAutoRecipe {
 
   private BloodOrb bloodOrb;
 
@@ -40,22 +43,23 @@ public abstract class EssenceBloodRing extends MaterialBloodRing implements ISub
   }
 
   public int getMaxEssence(ItemStack itemStack) {
-    EnumRingMaterial material = EnumRingMaterial.values()[itemStack.getMetadata()];
+    EnumRingMaterial material = EnumRingMaterial.values()[itemStack
+        .getMetadata()];
     return (int) (this.bloodOrb.getCapacity() * material.getMultiplier());
   }
 
   public abstract int getCost(Integer meta);
 
   @Override
-  public void addInformation(ItemStack itemStackIn, EntityPlayer playerIn, List list,
-      boolean var4) {
+  public void addInformation(ItemStack itemStackIn, EntityPlayer playerIn,
+      List list, boolean var4) {
     EssenceHelper eH = new EssenceHelper(itemStackIn);
     list.add(eH.getCurrentEssence() + "/" + eH.getMaxEssence());
   }
 
   @Override
-  public ActionResult<ItemStack> onItemRightClick(ItemStack itemStackIn, World worldIn,
-      EntityPlayer playerIn, EnumHand hand) {
+  public ActionResult<ItemStack> onItemRightClick(ItemStack itemStackIn,
+      World worldIn, EntityPlayer playerIn, EnumHand hand) {
     if (!worldIn.isRemote) {
       if (playerIn.isSneaking()) {
         EssenceHelper eH = new EssenceHelper(itemStackIn);
@@ -88,7 +92,8 @@ public abstract class EssenceBloodRing extends MaterialBloodRing implements ISub
   @Override
   public void registerRecipe() {
     this.forEachVariant((meta, varName) -> {
-      SoulForgeRecipeHelper reciperHelper = new SoulForgeRecipeHelper(this, meta);
+      SoulForgeRecipeHelper reciperHelper = new SoulForgeRecipeHelper(this,
+          meta);
       reciperHelper.addCompnents(Rings.BasicRing, meta);
       reciperHelper.addCompnents(this.bloodOrbStack);
       reciperHelper.setDrain(this.getCost(meta));
@@ -98,21 +103,24 @@ public abstract class EssenceBloodRing extends MaterialBloodRing implements ISub
 
   public static class CustomTartaricRecipe extends TartaricForgeRecipe {
 
-    public CustomTartaricRecipe(Block result, double minSouls, double drain, Object... recipe) {
+    public CustomTartaricRecipe(Block result, double minSouls, double drain,
+        Object... recipe) {
       super(new ItemStack(result), minSouls, drain, recipe);
     }
 
-    public CustomTartaricRecipe(Item result, double minSouls, double drain, Object... recipe) {
+    public CustomTartaricRecipe(Item result, double minSouls, double drain,
+        Object... recipe) {
       super(new ItemStack(result), minSouls, drain, recipe);
     }
 
-    public CustomTartaricRecipe(ItemStack result, double minSouls, double drain, Object... recipe) {
+    public CustomTartaricRecipe(ItemStack result, double minSouls, double drain,
+        Object... recipe) {
       super(result, minSouls, drain, recipe);
     }
 
     public CustomTartaricRecipe(SoulForgeRecipeHelper reciperHelper) {
-      super(reciperHelper.getResult(), reciperHelper.getMinimumSouls(), reciperHelper.getDrain(),
-          reciperHelper.getComponents());
+      super(reciperHelper.getResult(), reciperHelper.getMinimumSouls(),
+          reciperHelper.getDrain(), reciperHelper.getComponents());
     }
   }
 }

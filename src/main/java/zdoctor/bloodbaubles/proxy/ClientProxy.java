@@ -13,8 +13,10 @@ public final class ClientProxy implements CommonProxy {
   }
 
   @Override
-  public void init(FMLInitializationEvent e) {}
+  public void init(FMLInitializationEvent e) {
+  }
 
   @Override
-  public void postInit(FMLPostInitializationEvent e) {}
+  public void postInit(FMLPostInitializationEvent e) {
+  }
 }

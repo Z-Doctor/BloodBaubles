@@ -17,7 +17,8 @@ public class BasicRing extends MaterialBloodRing implements IAutoRecipe {
   @Override
   public void registerRecipe() {
     this.forEachVariant((meta, varName) -> {
-      SoulForgeRecipeHelper reciperHelper = new SoulForgeRecipeHelper(this, meta);
+      SoulForgeRecipeHelper reciperHelper = new SoulForgeRecipeHelper(this,
+          meta);
       EnumRingMaterial material = EnumRingMaterial.valueOf(varName);
       reciperHelper.addCompnents(material.getMaterialStack());
       reciperHelper.addCompnents(material.getMaterialStack());

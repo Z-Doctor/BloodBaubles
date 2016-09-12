@@ -22,5 +22,6 @@ public final class Rings {
 
   public static final Item GodsGift = new GodsGift();
 
-  public static void initRings() {}
+  public static void initRings() {
+  }
 }

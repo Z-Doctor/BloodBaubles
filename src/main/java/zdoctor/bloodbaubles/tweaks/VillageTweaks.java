@@ -34,7 +34,8 @@ public class VillageTweaks {
     }
 
     @Override
-    public void modifyMerchantRecipeList(MerchantRecipeList recipeList, Random random) {
+    public void modifyMerchantRecipeList(MerchantRecipeList recipeList,
+        Random random) {
       recipeList.add(new MerchantRecipe(new ItemStack(Rings.GodsGift, 1, 0),
           new ItemStack(Items.EMERALD, References.Blessing_Cost, 0),
           new ItemStack(Rings.GodsGift, 1, 1)));
