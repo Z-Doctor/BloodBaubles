@@ -12,5 +12,5 @@ public class Blocks {
   public static final Block Test = new AutoBlock("Test", Material.ROCK)
       .setCreativeTab(ModCreativeTabs.BloodRings);
 
-  public static void init() {}
+  public static void initBlocks() {}
 }

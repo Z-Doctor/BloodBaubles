@@ -22,8 +22,6 @@ public class AutoItem extends Item implements IAutoRegister {
 
   @Override
   public void registerRender() {
-    System.out.println("ToSting: " + this.getRegistryName().toString());
-    System.out.println("Default: " + this.getRegistryName());
     ModelLoader.setCustomModelResourceLocation(this, 0,
         new ModelResourceLocation(this.getRegistryName().toString()));
   }

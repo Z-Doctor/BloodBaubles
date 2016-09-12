@@ -114,15 +114,5 @@ public abstract class EssenceBloodRing extends MaterialBloodRing implements ISub
       super(reciperHelper.getResult(), reciperHelper.getMinimumSouls(), reciperHelper.getDrain(),
           reciperHelper.getComponents());
     }
-    // @Override
-    // public boolean matches(List<ItemStack> checkedList, World world, BlockPos
-    // pos) {
-    // boolean match = super.matches(checkedList, world, pos);
-    // if (match) {
-    // checkedList.forEach(itemStack -> {
-    // });
-    // }
-    // return match;
-    // }
   }
 }

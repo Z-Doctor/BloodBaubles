@@ -19,3 +19,15 @@ I know that this is a lot for a small project, but I want to make thse standards
 1. Will legacy version be supported?
 
 Yes. My hope is that my current code will be so flexible and independent that upgrading or making them backwards compatible will be easy with minimal effort (redefining a few methods)
+
+2. What are the dependencies?
+
+Blood Magic & Baubles and their respective dependencies.
+
+3. I'm getting and error running 'gradlew build'.
+
+You need to run Gradle 3.0 or higher in order to compiler Java 8. Google Gradle 3.0
+
+4. I can't code but I want to help.
+
+Great! Add language support by localizing the names (no google translating please)

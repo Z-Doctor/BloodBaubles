@@ -16,12 +16,12 @@ import zdoctor.bloodbaubles.api.IAutoRegister;
  */
 public final class ZGameRegistry {
 
-  private static ArrayList<IAutoRegister> Item_REGISTRY = new ArrayList<>();
+  private static ArrayList<IAutoRegister> Auto_REGISTRY = new ArrayList<>();
 
   private static ArrayList<IAutoRecipe> Recipe_REGISTRY = new ArrayList<>();
 
   public static void registerGameItems() {
-    Item_REGISTRY.forEach(auto -> {
+    Auto_REGISTRY.forEach(auto -> {
       auto.registerToGame();
     });
   }
@@ -34,14 +34,14 @@ public final class ZGameRegistry {
 
   @SideOnly(Side.CLIENT)
   public static void registerGameRenders() {
-    Item_REGISTRY.forEach(auto -> {
+    Auto_REGISTRY.forEach(auto -> {
       auto.registerRender();
     });
   }
 
   public static void registerAuto(Object o) {
     if (o instanceof IAutoRegister)
-      Item_REGISTRY.add((IAutoRegister) o);
+      Auto_REGISTRY.add((IAutoRegister) o);
     if (o instanceof IAutoRecipe)
       Recipe_REGISTRY.add((IAutoRecipe) o);
   }

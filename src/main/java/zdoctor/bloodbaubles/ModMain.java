@@ -30,7 +30,7 @@ public final class ModMain {
   @EventHandler
   public void preInit(FMLPreInitializationEvent e) {
     Rings.initRings();
-    Blocks.init();
+    Blocks.initBlocks();
     ZGameRegistry.registerGameItems();
     proxy.preInit(e);
   }
