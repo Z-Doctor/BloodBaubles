@@ -20,32 +20,32 @@ public class GodsGift extends BloodRing {
 		super("GodsGift", true);
 	}
 
-	@Override
-	public void registerRender(String nameIn) {
-		ZRenderRegistery.registerItem("rings/GodsGift_Inactive", this, 0);
-		ZRenderRegistery.registerItem("rings/GodsGift_Active", this, 1);
-	}
+//	@Override
+//	public void registerRender(String nameIn) {
+//		ZRenderRegistery.registerItem("rings/GodsGift_Inactive", this, 0);
+//		ZRenderRegistery.registerItem("rings/GodsGift_Active", this, 1);
+//	}
 
-	@Override
-	public String getUnlocalizedName(ItemStack stack) {
-		return "item." + ModMain.MODID + "_GodsGift_" + (stack.getMetadata() == 0 ? "Inactive" : "Active");
-	}
+//	@Override
+//	public String getUnlocalizedName(ItemStack stack) {
+//		return "item." + ModMain.MODID + "_GodsGift_" + (stack.getMetadata() == 0 ? "Inactive" : "Active");
+//	}
 
-	@Override
-	public void getSubItems(Item itemIn, CreativeTabs tab, List<ItemStack> subItems) {
-		subItems.add(new ItemStack(itemIn, 1, 0));
-		subItems.add(new ItemStack(itemIn, 1, 1));
-	}
+//	@Override
+//	public void getSubItems(Item itemIn, CreativeTabs tab, List<ItemStack> subItems) {
+//		subItems.add(new ItemStack(itemIn, 1, 0));
+//		subItems.add(new ItemStack(itemIn, 1, 1));
+//	}
 
-	@Override
-	public void registerRecipe() {
-		Object[] recipe = { "n", "g", 'n', Items.NETHER_STAR, 'g', ZRing.BasicGoldRing };
-		GameRegistry.addShapedRecipe(new ItemStack(this, 1, 0), recipe);
-	}
+//	@Override
+//	public void registerRecipe() {
+//		Object[] recipe = { "n", "g", 'n', Items.NETHER_STAR, 'g', ZRing.BasicGoldRing };
+//		GameRegistry.addShapedRecipe(new ItemStack(this, 1, 0), recipe);
+//	}
 
-	@Override
-	public void registerVariants() {
-		ModelBakery.registerItemVariants(this, new ResourceLocation(ModMain.MODID + ":rings/GodsGift_Inactive"),
-				new ResourceLocation(ModMain.MODID + ":rings/GodsGift_Active"));
-	}
+//	@Override
+//	public void registerVariants() {
+//		ModelBakery.registerItemVariants(this, new ResourceLocation(ModMain.MODID + ":rings/GodsGift_Inactive"),
+//				new ResourceLocation(ModMain.MODID + ":rings/GodsGift_Active"));
+//	}
 }

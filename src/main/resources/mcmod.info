@@ -1,14 +1,14 @@
 [
 {
-  "modid": "ZDoctorBB",
+  "modid": "bloodbaubles",
   "name": "Blood Baubles",
   "description": "For the traveling BloodMage.",
-  "version": "1.9.4-1.1",
-  "mcversion": "1.9.4",
+  "version": "",
+  "mcversion": "1.11.2",
   "url": "",
   "updateUrl": "",
   "authorList": ["Z_Doctor"],
-  "credits": "Please support the mod if you want to see continued development.",
+  "credits": "",
   "logoFile": "",
   "screenshots": [],
   "requiredMods": ["Forge", "AWWayofTime", "Baubles"],

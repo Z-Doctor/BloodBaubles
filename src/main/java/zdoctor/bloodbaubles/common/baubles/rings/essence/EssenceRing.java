@@ -2,21 +2,18 @@ package zdoctor.bloodbaubles.common.baubles.rings.essence;
 
 import java.util.List;
 
-import WayofTime.bloodmagic.api.network.SoulNetwork;
+import WayofTime.bloodmagic.api.saving.SoulNetwork;
 import WayofTime.bloodmagic.api.util.helper.NetworkHelper;
-import WayofTime.bloodmagic.registry.ModItems;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ActionResult;
-import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.world.World;
-import zdoctor.bloodbaubles.api.IConsumeBloodOrb;
 import zdoctor.bloodbaubles.api.IStoreLP;
 import zdoctor.bloodbaubles.common.baubles.rings.basetier.BloodRing;
 
-public abstract class EssenceRing extends BloodRing implements IStoreLP, IConsumeBloodOrb {
+public abstract class EssenceRing extends BloodRing implements IStoreLP {
 	public EssenceRing(String nameIn) {
 		this(nameIn, false);
 	}
@@ -26,15 +23,14 @@ public abstract class EssenceRing extends BloodRing implements IStoreLP, IConsum
 	}
 
 	@Override
-	public ActionResult<ItemStack> onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn,
-			EnumHand hand) {
-		if (!worldIn.isRemote)
-			if (playerIn.isSneaking())
-				if (!this.isFull(itemStackIn)) {
-					this.attemptToFillFrom(playerIn, itemStackIn);
-					return new ActionResult(EnumActionResult.PASS, itemStackIn);
-				}
-		return super.onItemRightClick(itemStackIn, worldIn, playerIn, hand);
+	public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
+//		if (!worldIn.isRemote)
+//			if (playerIn.isSneaking())
+//				if (!this.isFull(itemStackIn)) {
+//					this.attemptToFillFrom(playerIn, itemStackIn);
+//					return new ActionResult(EnumActionResult.PASS, itemStackIn);
+//				}
+		return super.onItemRightClick(world, player, hand);
 	}
 
 	@Override
@@ -54,7 +50,8 @@ public abstract class EssenceRing extends BloodRing implements IStoreLP, IConsum
 
 	@Override
 	public int getMaxCapacity(ItemStack itemStackIn) {
-		return ModItems.orbWeak.getCapacity();
+		return 0;
+//		return ModItems.orbWeak.getCapacity();
 	}
 
 	@Override
