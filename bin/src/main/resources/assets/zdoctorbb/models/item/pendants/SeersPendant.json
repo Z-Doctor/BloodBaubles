@@ -1,0 +1,6 @@
+{
+    "parent":"zdoctorbb:item/standard_item",
+    "textures": {
+        "layer0":"zdoctorbb:pendants/SeersPendant"
+    }
+}
