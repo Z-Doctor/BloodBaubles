@@ -1,9 +1,11 @@
-package zdoctor.bloodbaubles.common.baubles.rings.essence;
+package zdoctor.bloodbaubles.common.baubles;
 
 import java.util.List;
 
+import WayofTime.bloodmagic.api.orb.BloodOrb;
 import WayofTime.bloodmagic.api.saving.SoulNetwork;
 import WayofTime.bloodmagic.api.util.helper.NetworkHelper;
+import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -11,9 +13,34 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.world.World;
 import zdoctor.bloodbaubles.api.IStoreLP;
-import zdoctor.bloodbaubles.common.baubles.rings.basetier.BloodRing;
 
-public abstract class EssenceRing extends BloodRing implements IStoreLP {
+public class EssenceRing extends BloodRing implements IStoreLP {
+	public static final String[] orbList = new String[] { "Weak", "Apprentices", "Magicians", "Masters", "Archmages",
+			"Transcendents" };
+	public static final String[] material = new String[] { "Iron", "Gold" };
+	
+	private boolean custom = false;
+
+	public EssenceRing() {
+		super("EssenceRing", true);
+		setSubCount(orbList.length * material.length);
+	}
+	
+	public EssenceRing(String name, boolean hasSubTypes, BloodOrb orb) {
+		super(name, hasSubTypes);
+		custom = true;
+	}
+
+	@Override
+	public String getNameFromDamage(int itemDamage) {
+		if(this.custom)
+			return super.getNameFromDamage(itemDamage);
+		
+		int materialTemp = (int) (itemDamage/(orbList.length));
+		itemDamage = itemDamage % orbList.length;
+		return super.getRegistryName() + "_" + material[materialTemp] + "_" + orbList[itemDamage];
+	}
+
 	public EssenceRing(String nameIn) {
 		this(nameIn, false);
 	}
@@ -24,12 +51,12 @@ public abstract class EssenceRing extends BloodRing implements IStoreLP {
 
 	@Override
 	public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
-//		if (!worldIn.isRemote)
-//			if (playerIn.isSneaking())
-//				if (!this.isFull(itemStackIn)) {
-//					this.attemptToFillFrom(playerIn, itemStackIn);
-//					return new ActionResult(EnumActionResult.PASS, itemStackIn);
-//				}
+		// if (!worldIn.isRemote)
+		// if (playerIn.isSneaking())
+		// if (!this.isFull(itemStackIn)) {
+		// this.attemptToFillFrom(playerIn, itemStackIn);
+		// return new ActionResult(EnumActionResult.PASS, itemStackIn);
+		// }
 		return super.onItemRightClick(world, player, hand);
 	}
 
@@ -51,7 +78,7 @@ public abstract class EssenceRing extends BloodRing implements IStoreLP {
 	@Override
 	public int getMaxCapacity(ItemStack itemStackIn) {
 		return 0;
-//		return ModItems.orbWeak.getCapacity();
+		// return ModItems.orbWeak.getCapacity();
 	}
 
 	@Override

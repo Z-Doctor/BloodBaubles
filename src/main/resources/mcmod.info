@@ -11,7 +11,7 @@
   "credits": "",
   "logoFile": "",
   "screenshots": [],
-  "requiredMods": ["Forge", "AWWayofTime", "Baubles"],
-  "dependencies": ["Forge", "AWWayofTime", "Baubles"]
+  "requiredMods" = [],
+  "dependencies": []
 }
 ]

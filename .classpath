@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src/main/java"/>
+	<classpathentry kind="src" path="src/main/resources"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/LazyApi"/>
+	<classpathentry kind="lib" path="E:/OneDrive/Modding/Minecraft/1.11/BloodBaubles/mods/BloodMagic-1.11-2.1.9-78.jar" sourcepath="E:/OneDrive/Modding/Minecraft/1.11/BloodBaubles/mods/BloodMagic-1.11.zip">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/E:/OneDrive/Modding/Minecraft/1.11/BloodBaubles/mods/BloodMagic-1.11-2.1.9-78-javadoc.jar!/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="E:/OneDrive/Modding/Minecraft/1.11/BloodBaubles/mods/Baubles-1.11-1.4.3.jar" sourcepath="E:/OneDrive/Modding/Minecraft/1.11/BloodBaubles/mods/Baubles-master.zip"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/MDKExample"/>
+	<classpathentry kind="lib" path="E:/OneDrive/Modding/Minecraft/1.11/BloodBaubles/mods/Guide-API-1.11-2.1.0-51.jar" sourcepath="E:/OneDrive/Modding/Minecraft/1.11/BloodBaubles/mods/Guide-API-1.11-2.1.0-51-sources.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/E:/OneDrive/Modding/Minecraft/1.11/BloodBaubles/mods/Guide-API-1.11-2.1.0-51-javadoc.jar!/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

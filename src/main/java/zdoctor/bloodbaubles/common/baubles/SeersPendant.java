@@ -1,4 +1,4 @@
-package zdoctor.bloodbaubles.common.baubles.pendants;
+package zdoctor.bloodbaubles.common.baubles;
 
 import baubles.api.BaubleType;
 import baubles.api.IBauble;

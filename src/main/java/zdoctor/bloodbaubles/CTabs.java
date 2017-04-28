@@ -9,7 +9,7 @@ public class CTabs {
 	public static CreativeTabs BloodRings = new CreativeTabs("BloodBaubles") {
 		@Override
 		public ItemStack getTabIconItem() {
-			return new ItemStack(ZRing.BasicGoldRing);
+			return new ItemStack(ZRing.BasicRing);
 		}
 	};
 

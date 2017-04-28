@@ -1,4 +1,4 @@
-package zdoctor.bloodbaubles.common.baubles.rings.essence;
+package zdoctor.bloodbaubles.common.baubles;
 
 import java.util.List;
 

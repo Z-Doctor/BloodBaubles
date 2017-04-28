@@ -1,0 +1,18 @@
+item.BloodBaubles_BasicIronRing.name=铁指环
+item.BloodBaubles_BasicGoldRing.name=金指环
+item.BloodBaubles_GodsGift_Inactive.name=上帝的礼物 - Inactive
+item.BloodBaubles_GodsGift_Active.name=上帝的礼物 - Active
+item.BloodBaubles_WeakIronBloodRing.name=铁质虚弱指环
+item.BloodBaubles_WeakGoldBloodRing.name=金子虚弱指环
+item.BloodBaubles_ApprenticesIronBloodRing.name=铁质学徒指环
+item.BloodBaubles_ApprenticesGoldBloodRing.name=金质学徒指环
+item.BloodBaubles_MagiciansIronBloodRing.name=铁质法师指环
+item.BloodBaubles_MagiciansGoldBloodRing.name=金质法师指环
+item.BloodBaubles_MastersIronBloodRing.name=铁质导师指环
+item.BloodBaubles_MastersGoldBloodRing.name=金质导师指环
+
+
+
+item.BloodBaubles_SeerPendant.name=先知吊坠
+
+itemGroup.BloodBaubles=Blood Baubles

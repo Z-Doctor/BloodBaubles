@@ -1,4 +1,4 @@
-package zdoctor.bloodbaubles.common.baubles.rings.basetier;
+package zdoctor.bloodbaubles.common.baubles;
 
 import baubles.api.BaubleType;
 import baubles.api.BaublesApi;
@@ -20,6 +20,7 @@ import net.minecraft.util.NonNullList;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import zdoctor.bloodbaubles.CTabs;
 import zdoctor.bloodbaubles.common.BloodBauble;
 import zmods.lazyapi.api.EasyItems;
 
@@ -30,14 +31,6 @@ public abstract class BloodRing extends BloodBauble {
 	}
 
 	public BloodRing(String nameIn, boolean hasSubTypes) {
-		super(nameIn);
-//		this.file = new ResourceLocation(ModMain.MODID + ":rings/" + nameIn);
-//		this.setHasSubtypes(hasSubTypes);
-//		this.setMaxStackSize(1);
-//		this.setCreativeTab(CTabs.BloodRings);
-//		this.setUnlocalizedName(ModMain.MODID + "_" + nameIn);
-//		GameRegistry.register(this, this.file);
-//		ZCustomItemRegistry.registerRecipe(this);
-//		registerRender(nameIn);
+		super(nameIn, hasSubTypes);
 	}
 }
