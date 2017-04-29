@@ -1,10 +1,11 @@
 package zdoctor.bloodbaubles.common;
 
 import zdoctor.bloodbaubles.common.events.CraftingEvents;
+import zdoctor.bloodbaubles.common.events.RingEvents;
 
 public class EventRegistry {
 	public static void postInit() {
-		zdoctor.bloodbaubles.common.events.RingEvents.postInit();
+		RingEvents.postInit();
 		CraftingEvents.postInit();
 	}
 }

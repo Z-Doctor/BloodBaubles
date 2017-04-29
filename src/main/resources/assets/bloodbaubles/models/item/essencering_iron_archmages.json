@@ -2,6 +2,6 @@
     "parent":"BloodBaubles:item/standard_ring",
     "textures": {
         "layer0":"BloodBaubles:rings/ring_iron",
-		"layer1":"BloodBaubles:gemstones/bloodorb_weak"
+		"layer1":"BloodBaubles:gemstones/bloodorb_masters"
     }
 }

@@ -20,7 +20,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import zdoctor.bloodbaubles.CTabs;
 import zdoctor.bloodbaubles.ModMain;
-import zmods.lazyapi.api.EasyItems;
+import zmods.lazyapi.easy.EasyItems;
 
 public abstract class BloodBauble extends EasyItems implements IBauble {
 
@@ -31,7 +31,7 @@ public abstract class BloodBauble extends EasyItems implements IBauble {
 	public BloodBauble(String name, boolean hasSubTypes) {
 		super(name, hasSubTypes);
 		setSubCount(2);
-		setMaxStackSize(0);
+		setMaxStackSize(1);
 		setCreativeTab(CTabs.BloodRings);
 		setUnlocalizedName(ModMain.MODID + "_" + name);
 		
@@ -67,7 +67,7 @@ public abstract class BloodBauble extends EasyItems implements IBauble {
 
 	@Override
 	public boolean hasEffect(ItemStack par1ItemStack) {
-		return true;
+		return false;
 	}
 
 	@Override

@@ -1,22 +1,22 @@
-item.BloodBaubles_BasicIronRing.name=Iron Ring
-item.BloodBaubles_BasicGoldRing.name=Gold Ring
-item.BloodBaubles_GodsGift_Inactive.name=God's Gift (Inactive)
-item.BloodBaubles_GodsGift_Active.name=God's Gift (Active)
-item.BloodBaubles_WeakIronBloodRing.name=Weak Iron Blood Ring
-item.BloodBaubles_WeakGoldBloodRing.name=Weak Gold Blood Ring
-item.BloodBaubles_ApprenticesIronBloodRing.name=Apprentice's Iron Ring
-item.BloodBaubles_ApprenticesGoldBloodRing.name=Apprentice's Gold Ring
-item.BloodBaubles_MagiciansIronBloodRing.name=Magician's Iron Ring
-item.BloodBaubles_MagiciansGoldBloodRing.name=Magician's Gold Ring
-item.BloodBaubles_MastersIronBloodRing.name=Master's Iron Ring
-item.BloodBaubles_MastersGoldBloodRing.name=Master's Gold Ring
-item.BloodBaubles_ArchmagesIronBloodRing.name=Archmage's Iron Ring
-item.BloodBaubles_ArchmagesGoldBloodRing.name=Archmage's Gold Ring
-item.BloodBaubles_TranscendentsIronBloodRing.name=Transcendent's Iron Ring
-item.BloodBaubles_TranscendentsGoldBloodRing.name=Transcendent's Gold Ring
+item.basicring_iron.name=Iron Ring
+item.basicring_gold.name=Gold Ring
+item.godsgift_inactive.name=God's Gift (Inactive)
+item.godsgift_active.name=God's Gift (Active)
 
+item.essencering_iron_weak.name=Weak Iron Blood Ring
+item.essencering_iron_apprentices.name=Apprentice's Iron Ring
+item.essencering_iron_magicians.name=Magician's Iron Ring
+item.essencering_iron_masters.name=Master's Iron Ring
+item.essencering_iron_archmages.name=Archmage's Iron Ring
+item.essencering_iron_transcendents.name=Transcendent's Iron Ring
 
+item.essencering_gold_weak.name=Weak Gold Blood Ring
+item.essencering_gold_apprentices.name=Apprentice's Gold Ring
+item.essencering_gold_magicians.name=Magician's Gold Ring
+item.essencering_gold_masters.name=Master's Gold Ring
+item.essencering_gold_archmages.name=Archmage's Gold Ring
+item.essencering_gold_transcendents.name=Transcendent's Gold Ring
 
-item.BloodBaubles_SeersPendant.name=Seer's Pendant
+item.pendant_seers.name=Seer's Pendant
 
 itemGroup.BloodBaubles=Blood Baubles

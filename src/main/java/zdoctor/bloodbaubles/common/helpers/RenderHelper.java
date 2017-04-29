@@ -26,23 +26,23 @@ public class RenderHelper {
 		fontRenderer.drawString(text, -fontRenderer.getStringWidth(text) / 2, -fontRenderer.FONT_HEIGHT / 2, color);
 	}
 
-//	public static void applyTETranslatef(TileEntity entity, float x, float y, float z) {
-//		EntityPlayer player = Minecraft.getMinecraft().thePlayer;
-//
-//		float diffX = (float) (entity.getPos().getX() - RenderHelper.calcRenderPos(player.posX, player.prevPosX));
-//		float diffY = (float) (entity.getPos().getY() - RenderHelper.calcRenderPos(player.posY, player.prevPosY));
-//		float diffZ = (float) (entity.getPos().getZ() - RenderHelper.calcRenderPos(player.posZ, player.prevPosZ));
-//
-//		GL11.glTranslatef(diffX + x, diffY + y, diffZ + z);
-//	}
+	public static void applyTETranslatef(TileEntity entity, float x, float y, float z) {
+		EntityPlayer player = Minecraft.getMinecraft().player;
 
-//	public static void applyTETranslated(TileEntity entity, double x, double y, double z) {
-//		EntityPlayer player = Minecraft.getMinecraft().thePlayer;
-//
-//		double diffX = entity.getPos().getX() - RenderHelper.calcRenderPos(player.posX, player.prevPosX);
-//		double diffY = entity.getPos().getY() - RenderHelper.calcRenderPos(player.posY, player.prevPosY);
-//		double diffZ = entity.getPos().getZ() - RenderHelper.calcRenderPos(player.posZ, player.prevPosZ);
-//
-//		GL11.glTranslated(diffX + x, diffY + y, diffZ + z);
-//	}
+		float diffX = (float) (entity.getPos().getX() - RenderHelper.calcRenderPos(player.posX, player.prevPosX));
+		float diffY = (float) (entity.getPos().getY() - RenderHelper.calcRenderPos(player.posY, player.prevPosY));
+		float diffZ = (float) (entity.getPos().getZ() - RenderHelper.calcRenderPos(player.posZ, player.prevPosZ));
+
+		GL11.glTranslatef(diffX + x, diffY + y, diffZ + z);
+	}
+
+	public static void applyTETranslated(TileEntity entity, double x, double y, double z) {
+		EntityPlayer player = Minecraft.getMinecraft().player;
+
+		double diffX = entity.getPos().getX() - RenderHelper.calcRenderPos(player.posX, player.prevPosX);
+		double diffY = entity.getPos().getY() - RenderHelper.calcRenderPos(player.posY, player.prevPosY);
+		double diffZ = entity.getPos().getZ() - RenderHelper.calcRenderPos(player.posZ, player.prevPosZ);
+
+		GL11.glTranslated(diffX + x, diffY + y, diffZ + z);
+	}
 }

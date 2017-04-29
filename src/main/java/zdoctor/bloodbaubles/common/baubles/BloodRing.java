@@ -22,7 +22,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import zdoctor.bloodbaubles.CTabs;
 import zdoctor.bloodbaubles.common.BloodBauble;
-import zmods.lazyapi.api.EasyItems;
+import zmods.lazyapi.easy.EasyItems;
 
 public abstract class BloodRing extends BloodBauble {
 

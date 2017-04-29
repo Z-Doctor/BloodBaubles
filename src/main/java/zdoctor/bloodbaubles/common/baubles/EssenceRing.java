@@ -5,27 +5,31 @@ import java.util.List;
 import WayofTime.bloodmagic.api.orb.BloodOrb;
 import WayofTime.bloodmagic.api.saving.SoulNetwork;
 import WayofTime.bloodmagic.api.util.helper.NetworkHelper;
-import net.minecraft.block.properties.PropertyEnum;
+import WayofTime.bloodmagic.registry.ModItems;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ActionResult;
+import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.world.World;
 import zdoctor.bloodbaubles.api.IStoreLP;
 
 public class EssenceRing extends BloodRing implements IStoreLP {
-	public static final String[] orbList = new String[] { "Weak", "Apprentices", "Magicians", "Masters", "Archmages",
-			"Transcendents" };
+	public static final String[] orbNameList = new String[] { "Weak", "Apprentices", "Magicians", "Masters",
+			"Archmages", "Transcendents" };
+	public static final BloodOrb[] orbList = new BloodOrb[] { ModItems.ORB_WEAK, ModItems.ORB_APPRENTICE,
+			ModItems.ORB_MAGICIAN, ModItems.ORB_MASTER, ModItems.ORB_ARCHMAGE, ModItems.ORB_TRANSCENDENT };
 	public static final String[] material = new String[] { "Iron", "Gold" };
-	
+	public static final float[] materaialMod = new float[] { .75f, .875f };
+
 	private boolean custom = false;
 
 	public EssenceRing() {
 		super("EssenceRing", true);
 		setSubCount(orbList.length * material.length);
 	}
-	
+
 	public EssenceRing(String name, boolean hasSubTypes, BloodOrb orb) {
 		super(name, hasSubTypes);
 		custom = true;
@@ -33,30 +37,21 @@ public class EssenceRing extends BloodRing implements IStoreLP {
 
 	@Override
 	public String getNameFromDamage(int itemDamage) {
-		if(this.custom)
+		if (this.custom)
 			return super.getNameFromDamage(itemDamage);
-		
-		int materialTemp = (int) (itemDamage/(orbList.length));
-		itemDamage = itemDamage % orbList.length;
-		return super.getRegistryName() + "_" + material[materialTemp] + "_" + orbList[itemDamage];
-	}
-
-	public EssenceRing(String nameIn) {
-		this(nameIn, false);
-	}
-
-	public EssenceRing(String nameIn, boolean hasSubTypes) {
-		super(nameIn, hasSubTypes);
+		int materialTemp = (int) (itemDamage / (orbNameList.length));
+		itemDamage = itemDamage % orbNameList.length;
+		return super.getRegistryName().getResourcePath() + "_" + material[materialTemp] + "_" + orbNameList[itemDamage];
 	}
 
 	@Override
 	public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
-		// if (!worldIn.isRemote)
-		// if (playerIn.isSneaking())
-		// if (!this.isFull(itemStackIn)) {
-		// this.attemptToFillFrom(playerIn, itemStackIn);
-		// return new ActionResult(EnumActionResult.PASS, itemStackIn);
-		// }
+		if (!world.isRemote)
+			if (player.isSneaking())
+				if (!this.isFull(player.getHeldItem(hand))) {
+					this.attemptToFillFrom(player, player.getHeldItem(hand));
+					return new ActionResult(EnumActionResult.PASS, player.getHeldItem(hand));
+				}
 		return super.onItemRightClick(world, player, hand);
 	}
 
@@ -77,8 +72,8 @@ public class EssenceRing extends BloodRing implements IStoreLP {
 
 	@Override
 	public int getMaxCapacity(ItemStack itemStackIn) {
-		return 0;
-		// return ModItems.orbWeak.getCapacity();
+		return (int) (orbList[itemStackIn.getItemDamage() % orbList.length].getCapacity()
+				* (materaialMod[(int) (itemStackIn.getItemDamage() / (orbNameList.length))]));
 	}
 
 	@Override
@@ -106,22 +101,21 @@ public class EssenceRing extends BloodRing implements IStoreLP {
 
 	@Override
 	public void attemptToFillFrom(EntityPlayer playerIn, ItemStack itemStackIn) {
-		System.out.println("Filling");
+//		System.out.println("Filling");
 		SoulNetwork soulNetwork = NetworkHelper.getSoulNetwork(playerIn);
 		int neededLP = this.getNeededLP(itemStackIn);
-		System.out.println("Cur: " + soulNetwork.getCurrentEssence() + " Needed: " + neededLP);
+//		System.out.println("Cur: " + soulNetwork.getCurrentEssence() + " Needed: " + neededLP);
 		if (soulNetwork.getCurrentEssence() >= neededLP) {
-			System.out.println("Enough Found");
+//			System.out.println("Enough Found");
 			soulNetwork.syphon(neededLP);
 			this.addToReserve(itemStackIn, neededLP);
 		} else if (soulNetwork.getCurrentEssence() > 0) {
-			System.out.println("Adjusting");
+//			System.out.println("Adjusting");
 			neededLP = soulNetwork.getCurrentEssence();
 			soulNetwork.syphon(neededLP);
 			this.addToReserve(itemStackIn, neededLP);
-		} else
-			System.out.println("Error of some kind");
-		System.out.println("Done");
+		}
+//		System.out.println("Done");
 	}
 
 	@Override
