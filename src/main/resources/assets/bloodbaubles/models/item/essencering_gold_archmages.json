@@ -2,6 +2,6 @@
     "parent":"BloodBaubles:item/standard_ring",
     "textures": {
         "layer0":"BloodBaubles:rings/ring_gold",
-		"layer1":"BloodBaubles:gemstones/bloodorb_masters"
+		"layer1":"BloodBaubles:gemstones/bloodorb_archmages"
     }
 }

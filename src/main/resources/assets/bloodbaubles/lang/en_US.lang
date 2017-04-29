@@ -17,6 +17,11 @@ item.essencering_gold_masters.name=Master's Gold Ring
 item.essencering_gold_archmages.name=Archmage's Gold Ring
 item.essencering_gold_transcendents.name=Transcendent's Gold Ring
 
-item.pendant_seers.name=Seer's Pendant
+item.insightfultrinket_divination.name=Divination Trinket
+item.insightfultrinket_seers.name=Seer's Trinket
+
+item.soulring.name=Soul Ring
 
 itemGroup.BloodBaubles=Blood Baubles
+
+entity.Villager.bishop=Bishop

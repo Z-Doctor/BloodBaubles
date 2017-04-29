@@ -1,4 +1,4 @@
-package zdoctor.bloodbaubles.common.events.custom;
+package zdoctor.bloodbaubles.common.events;
 
 import WayofTime.bloodmagic.tile.TileAltar;
 import net.minecraft.entity.player.EntityPlayer;

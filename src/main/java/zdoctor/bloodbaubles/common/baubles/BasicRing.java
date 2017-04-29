@@ -1,13 +1,5 @@
 package zdoctor.bloodbaubles.common.baubles;
 
-import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.init.Items;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.NonNullList;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
-
 public class BasicRing extends BloodRing {
 	public BasicRing() {
 		super("BasicRing", true);
@@ -15,7 +7,7 @@ public class BasicRing extends BloodRing {
 	}
 	
 	@Override
-	public String getNameFromDamage(int itemDamage) {
+	public String getNameFromMeta(int itemDamage) {
 		return super.getRegistryName().getResourcePath() + ((itemDamage == 0) ? "_iron" : "_gold");
 	}
 

@@ -30,15 +30,15 @@ public class EssenceRing extends BloodRing implements IStoreLP {
 		setSubCount(orbList.length * material.length);
 	}
 
-	public EssenceRing(String name, boolean hasSubTypes, BloodOrb orb) {
+	public EssenceRing(String name, boolean hasSubTypes) {
 		super(name, hasSubTypes);
 		custom = true;
 	}
 
 	@Override
-	public String getNameFromDamage(int itemDamage) {
+	public String getNameFromMeta(int itemDamage) {
 		if (this.custom)
-			return super.getNameFromDamage(itemDamage);
+			return super.getNameFromMeta(itemDamage);
 		int materialTemp = (int) (itemDamage / (orbNameList.length));
 		itemDamage = itemDamage % orbNameList.length;
 		return super.getRegistryName().getResourcePath() + "_" + material[materialTemp] + "_" + orbNameList[itemDamage];

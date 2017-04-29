@@ -5,7 +5,7 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import zdoctor.bloodbaubles.ModMain;
 import zdoctor.bloodbaubles.common.events.RenderEvents;
-import zmods.lazyapi.core.DevTools;
+import zdoctor.lazymodder.core.DevTools;
 
 public class ClientProxy extends CommonProxy {
 	@Override

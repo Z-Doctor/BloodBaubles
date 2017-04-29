@@ -7,14 +7,13 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import zdoctor.bloodbaubles.common.proxy.CommonProxy;
-import zmods.lazyapi.core.DevTools;
 
 @Mod(modid = ModMain.MODID, name = ModMain.NAME, version = ModMain.VERSION , dependencies = ModMain.DEPENDENCIES)
 public class ModMain {
 	public static final String MODID = "bloodbaubles";
 	public static final String NAME = "Blood Baubles";
 	public static final String VERSION = "0.0";
-	public static final String DEPENDENCIES = "required-after:lazyapi;required-after:baubles;required-after:bloodmagic";
+	public static final String DEPENDENCIES = "required-after:lazymodder;required-after:baubles;required-after:bloodmagic";
 	
 	@Instance
 	public static ModMain mod = new ModMain();

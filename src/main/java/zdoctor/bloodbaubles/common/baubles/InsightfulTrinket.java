@@ -16,12 +16,16 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.world.World;
-import zdoctor.bloodbaubles.common.BloodBauble;
 
-public class SeersPendant extends BloodBauble implements IAltarReader {
+public class InsightfulTrinket extends BloodBauble implements IAltarReader {
 
-	public SeersPendant() {
-		super("SeersPendant");
+	public InsightfulTrinket() {
+		super("InsightfulTrinket", true);
+		setSubCount(2);
+	}
+	
+	public int getScanRadius() {
+		return 10;
 	}
 
 	@Override
@@ -33,26 +37,27 @@ public class SeersPendant extends BloodBauble implements IAltarReader {
 				NBTHelper.checkNBT(stack).getTagCompound().setString(Constants.NBT.OWNER_NAME, PlayerHelper.getUsernameFromUUID(uuid));
 				NBTHelper.checkNBT(stack).getTagCompound().setString(Constants.NBT.OWNER_UUID, uuid.toString());
 				SoulNetwork soulNetwork = NetworkHelper.getSoulNetwork(player);
-				ModItems.SIGIL_SEER.onItemRightClick(world, player, hand);
+				switch (stack.getMetadata()) {
+				case 0:
+					ModItems.SIGIL_DIVINATION.onItemRightClick(world, player, hand);
+					break;
+				case 1:
+					ModItems.SIGIL_SEER.onItemRightClick(world, player, hand);
+					break;
+				}
+				
 				return new ActionResult<ItemStack>(EnumActionResult.PASS, player.getHeldItem(hand));
 			}
 		}
 		return super.onItemRightClick(world, player, hand);
 	}
-
+	@Override
 	public BaubleType getBaubleType(ItemStack itemstack) {
 		return BaubleType.TRINKET;
 	}
 
-	public int getScanRadius() {
-		return 10;
-	}
-
-	public void registerRecipe() {
-		// Object[] recipe = { " x ", "xbx", " s ", Character.valueOf('x'),
-		// Items.STRING, Character.valueOf('b'),
-		// OrbRegistry.getOrbStack(ModItems.orbWeak), Character.valueOf('s'),
-		// ModItems.sigilSeer };
-		// GameRegistry.addShapedRecipe(new ItemStack(this, 1, 0), recipe);
+	@Override
+	public String getNameFromMeta(int meta) {
+		return getRegistryName().getResourcePath() + "_" + (meta == 0 ? "Divination" : "Seers");
 	}
 }
