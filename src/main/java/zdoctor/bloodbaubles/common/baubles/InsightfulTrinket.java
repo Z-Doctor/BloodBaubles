@@ -16,8 +16,10 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.world.World;
+import zdoctor.bloodbaubles.api.IConsumeBloodOrb;
+import zdoctor.bloodbaubles.common.item.BloodBauble;
 
-public class InsightfulTrinket extends BloodBauble implements IAltarReader {
+public class InsightfulTrinket extends BloodBauble implements IAltarReader, IConsumeBloodOrb {
 
 	public InsightfulTrinket() {
 		super("InsightfulTrinket", true);

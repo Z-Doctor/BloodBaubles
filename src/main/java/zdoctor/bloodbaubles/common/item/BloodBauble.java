@@ -1,4 +1,4 @@
-package zdoctor.bloodbaubles.common.baubles;
+package zdoctor.bloodbaubles.common.item;
 
 import baubles.api.BaubleType;
 import baubles.api.BaublesApi;
@@ -13,8 +13,8 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.world.World;
-import zdoctor.bloodbaubles.CTabs;
 import zdoctor.bloodbaubles.ModMain;
+import zdoctor.bloodbaubles.creativetab.BloodBaubles;
 import zdoctor.lazymodder.easy.EasyItems;
 
 public abstract class BloodBauble extends EasyItems implements IBauble {
@@ -26,7 +26,7 @@ public abstract class BloodBauble extends EasyItems implements IBauble {
 	public BloodBauble(String name, boolean hasSubTypes) {
 		super(name, hasSubTypes);
 		setMaxStackSize(1);
-		setCreativeTab(CTabs.BloodRings);
+		setCreativeTab(BloodBaubles.BloodRings);
 	}
 
 	@Override

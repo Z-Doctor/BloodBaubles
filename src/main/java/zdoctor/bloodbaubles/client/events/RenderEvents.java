@@ -1,4 +1,4 @@
-package zdoctor.bloodbaubles.common.events;
+package zdoctor.bloodbaubles.client.events;
 
 import net.minecraftforge.client.event.RenderWorldLastEvent;
 import net.minecraftforge.common.MinecraftForge;

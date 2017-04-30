@@ -1,5 +1,7 @@
 package zdoctor.bloodbaubles.common.baubles;
 
+import zdoctor.bloodbaubles.common.item.BloodBauble;
+
 public abstract class BloodRing extends BloodBauble {
 
 	public BloodRing(String nameIn) {

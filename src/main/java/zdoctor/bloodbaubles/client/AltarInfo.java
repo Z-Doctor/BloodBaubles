@@ -45,13 +45,13 @@ public class AltarInfo {
 						Event render = new RenderAltarInfoEvent(te, player);
 						MinecraftForge.EVENT_BUS.post(render);
 						if (!render.isCanceled())
-							renderData((TileAltar) te);
+							renderData((TileAltar) te, itemStack.getMetadata());
 					}
 				}
 		}
 	}
 
-	public static void renderData(TileAltar clientAltar) {
+	public static void renderData(TileAltar clientAltar, int meta) {
 		EntityPlayer player = Minecraft.getMinecraft().player;
 		if (clientAltar != null) {
 			if (VectorHelper.entityWithinDist(clientAltar.getPos(), player.getPosition(), 10)) {
@@ -68,13 +68,13 @@ public class AltarInfo {
 				GL11.glPushMatrix();
 				GL11.glTranslatef(0.0F, 0.25F, 0.0F);
 				GL11.glScalef(0.025F, 0.025F, 0.025F);
-				RenderHelper.renderText("Tier: " + clientAltar.getTier().toInt(), Integer.parseInt("00AAAA", 16));
+				RenderHelper.renderText(getAltarProgress(clientAltar, meta), Integer.parseInt("AA0000", 16));
 				GL11.glPopMatrix();
 
 				GL11.glPushMatrix();
 				GL11.glTranslatef(0.0F, 0.5F, 0.0F);
 				GL11.glScalef(0.025F, 0.025F, 0.025F);
-				RenderHelper.renderText(getAltarProgress(clientAltar), Integer.parseInt("AA0000", 16));
+				RenderHelper.renderText("Tier: " + clientAltar.getTier().toInt(), Integer.parseInt("00AAAA", 16));
 				GL11.glPopMatrix();
 
 				GL11.glPopMatrix();
@@ -86,14 +86,13 @@ public class AltarInfo {
 		return altar.getCurrentBlood() + " LP/" + altar.getCapacity() + "LP";
 	}
 
-	public static String getAltarProgress(TileAltar altar) {
-		if (altar.func_70301_a(0) != null) {
-			ItemStack itemStack = altar.func_70301_a(0);
-			if ((altar.func_70301_a(0).getItem() instanceof IBloodOrb)) {
-				// if (altar.getStackInSlot(0) != null) {
-				// ItemStack itemStack = altar.getStackInSlot(0);
-				// if ((altar.getStackInSlot(0).getItem() instanceof IBloodOrb))
-				// {
+	public static String getAltarProgress(TileAltar altar, int meta) {
+		// if (altar.func_70301_a(0) != null) {
+		// ItemStack itemStack = altar.func_70301_a(0);
+		// if ((altar.func_70301_a(0).getItem() instanceof IBloodOrb)) {
+		if (altar.getStackInSlot(0) != null) {
+			ItemStack itemStack = altar.getStackInSlot(0);
+			if ((altar.getStackInSlot(0).getItem() instanceof IBloodOrb)) {
 				IBloodOrb orb = (IBloodOrb) itemStack.getItem();
 				String ownerUUID = "No Owner";
 				if (itemStack.getTagCompound() != null) {
@@ -101,16 +100,20 @@ public class AltarInfo {
 					ownerUUID = uuid.equals("") ? ownerUUID : uuid;
 				}
 
-				if (!ownerUUID.equals("No Owner") && itemStack.getItem() instanceof IBindable) {
+				if (!ownerUUID.equals("No Owner") && itemStack.getItem() instanceof IBloodOrb) {
 					if (orb.getOrbLevel(itemStack.getMetadata()) > altar.getTier().toInt())
 						return "Upgrade to Tier " + orb.getOrbLevel(itemStack.getMetadata()) + " to charge orb.";
 
-					String playerName = PlayerHelper.getUsernameFromPlayer(Minecraft.getMinecraft().player).toString();
-					String itemOwner = ((IBindable) (itemStack.getItem())).getOwnerName(itemStack);
-					if (playerName.equals(itemOwner)) {
+					String itemOwner = PlayerHelper.getUsernameFromUUID(ownerUUID);
+					String playerUuid = PlayerHelper.getUUIDFromPlayer(Minecraft.getMinecraft().player).toString();
+					if (ownerUUID.equalsIgnoreCase(playerUuid)) {
 						SoulNetwork network = NetworkHelper.getSoulNetwork(ownerUUID);
 						return network.getCurrentEssence() + " LP/" + orb.getMaxEssence(itemStack.getMetadata())
 								+ " LP";
+					} else if (meta > 0) {
+						SoulNetwork network = NetworkHelper.getSoulNetwork(ownerUUID);
+						return itemOwner + ": " + network.getCurrentEssence() + " LP/"
+								+ orb.getMaxEssence(itemStack.getMetadata()) + " LP";
 					}
 					return itemOwner + " Orb";
 				}
