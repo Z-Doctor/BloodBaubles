@@ -20,32 +20,25 @@ public class VillageTweaks {
 		new PriestBlessing();
 	}
 
-	private static class PriestBlessing implements ITradeList {
+	public static class PriestBlessing {
 		public PriestBlessing() {
 			IForgeRegistry<VillagerProfession> professionList = VillagerRegistry.instance().getRegistry();
 			VillagerCareer bishop = new VillagerCareer(
 					VillagerRegistry.instance().getRegistry().getValue(new ResourceLocation("minecraft:priest")),
 					"bishop");
-			bishop.addTrade(1, this);
-			// professionList.register(bishop);
-			// List<VillagerProfession> professionList =
-			// VillagerRegistry.instance().getRegistry().getValues();
-			// for (VillagerProfession prof : professionList) {
-			// if (prof.getRegistryName().toString().equals("minecraft:priest"))
-			// {
-			// // VillagerCareer babtist = new VillagerCareer(prof,
-			// // "baptist");
-			// VillagerCareer priest = prof.getCareer(1);
-			// priest.addTrade(1, this);
-			// // babtist.addTrade(1, this);
-			// }
-			// }
+			bishop.addTrade(1, new PriestBlessing.BasicTrades());
 		}
 
-		@Override
-		public void addMerchantRecipe(IMerchant merchant, MerchantRecipeList recipeList, Random random) {
-			recipeList.add(new MerchantRecipe(new ItemStack(ZBaubles.GodsGift, 1, 0),
-					new ItemStack(Items.EMERALD, 64, 0), new ItemStack(ZBaubles.GodsGift, 1, 1)));
+		public static class BasicTrades implements ITradeList {
+			@Override
+			public void addMerchantRecipe(IMerchant merchant, MerchantRecipeList recipeList, Random random) {
+				recipeList.add(new MerchantRecipe(new ItemStack(ZBaubles.GodsGift, 1, 0),
+						new ItemStack(Items.EMERALD, 64, 0), new ItemStack(ZBaubles.GodsGift, 1, 1)));
+				recipeList.add(new MerchantRecipe(new ItemStack(Items.EMERALD, 4, 0),
+						new ItemStack(ZBaubles.BasicRing, 1, 0)));
+				recipeList.add(new MerchantRecipe(new ItemStack(Items.EMERALD, 7, 0),
+						new ItemStack(ZBaubles.BasicRing, 1, 1)));
+			}
 		}
 	}
 }

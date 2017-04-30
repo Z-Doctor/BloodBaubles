@@ -59,13 +59,13 @@ public class SoulRing extends EssenceRing implements IConsumeBloodOrb, IBindable
 	public int getLPReserve(ItemStack itemStack) {
 		String uuid = NBTHelper.checkNBT(itemStack).getTagCompound().getString(Constants.NBT.OWNER_UUID);
 		System.out.println(uuid.equals(""));
-		if(!uuid.equals("")) {
+		if (!uuid.equals("")) {
 			SoulNetwork linkNetwork = NetworkHelper.getSoulNetwork(uuid);
 			return linkNetwork.getCurrentEssence();
 		}
 		return -1;
 	}
-	
+
 	@Override
 	public void addInformation(ItemStack itemStack, EntityPlayer playerIn, List list, boolean var4) {
 		list.add("Linked: " + (getOwnerName(itemStack).equals("") ? "No one" : getOwnerName(itemStack)));

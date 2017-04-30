@@ -102,21 +102,22 @@ public class EssenceRing extends BloodRing implements IStoreLP, IConsumeBloodOrb
 
 	@Override
 	public void attemptToFillFrom(EntityPlayer playerIn, ItemStack itemStackIn) {
-//		System.out.println("Filling");
+		// System.out.println("Filling");
 		SoulNetwork soulNetwork = NetworkHelper.getSoulNetwork(playerIn);
 		int neededLP = this.getNeededLP(itemStackIn);
-//		System.out.println("Cur: " + soulNetwork.getCurrentEssence() + " Needed: " + neededLP);
+		// System.out.println("Cur: " + soulNetwork.getCurrentEssence() + "
+		// Needed: " + neededLP);
 		if (soulNetwork.getCurrentEssence() >= neededLP) {
-//			System.out.println("Enough Found");
+			// System.out.println("Enough Found");
 			soulNetwork.syphon(neededLP);
 			this.addToReserve(itemStackIn, neededLP);
 		} else if (soulNetwork.getCurrentEssence() > 0) {
-//			System.out.println("Adjusting");
+			// System.out.println("Adjusting");
 			neededLP = soulNetwork.getCurrentEssence();
 			soulNetwork.syphon(neededLP);
 			this.addToReserve(itemStackIn, neededLP);
 		}
-//		System.out.println("Done");
+		// System.out.println("Done");
 	}
 
 	@Override

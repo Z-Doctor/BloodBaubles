@@ -4,7 +4,7 @@ import net.minecraftforge.client.event.RenderWorldLastEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
-import zdoctor.bloodbaubles.client.AltarInfo;
+import zdoctor.bloodbaubles.client.render.RenderAltarInfo;
 import zdoctor.bloodbaubles.common.helpers.RenderHelper;
 
 public class RenderEvents {
@@ -15,7 +15,7 @@ public class RenderEvents {
 	private static class Events {
 		@SubscribeEvent
 		public void renderWorld(RenderWorldLastEvent e) {
-			AltarInfo.render();
+			RenderAltarInfo.render();
 		}
 
 		@SubscribeEvent

@@ -1,4 +1,4 @@
-package zdoctor.bloodbaubles.client;
+package zdoctor.bloodbaubles.client.render;
 
 import java.util.Iterator;
 import java.util.List;
@@ -6,7 +6,6 @@ import java.util.List;
 import org.lwjgl.opengl.GL11;
 
 import WayofTime.bloodmagic.api.Constants;
-import WayofTime.bloodmagic.api.iface.IBindable;
 import WayofTime.bloodmagic.api.orb.IBloodOrb;
 import WayofTime.bloodmagic.api.saving.SoulNetwork;
 import WayofTime.bloodmagic.api.util.helper.NetworkHelper;
@@ -19,7 +18,6 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.eventhandler.Event;
-import net.minecraftforge.oredict.OreDictionary;
 import zdoctor.bloodbaubles.common.ZBaubles;
 import zdoctor.bloodbaubles.common.baubles.InsightfulTrinket;
 import zdoctor.bloodbaubles.common.events.RenderAltarInfoEvent;
@@ -27,7 +25,7 @@ import zdoctor.bloodbaubles.common.helpers.LocatingHelpers;
 import zdoctor.bloodbaubles.common.helpers.RenderHelper;
 import zdoctor.bloodbaubles.common.helpers.VectorHelper;
 
-public class AltarInfo {
+public class RenderAltarInfo {
 	public static void render() {
 		EntityPlayer player = Minecraft.getMinecraft().player;
 		if (player != null) {
@@ -87,12 +85,12 @@ public class AltarInfo {
 	}
 
 	public static String getAltarProgress(TileAltar altar, int meta) {
-		// if (altar.func_70301_a(0) != null) {
-		// ItemStack itemStack = altar.func_70301_a(0);
-		// if ((altar.func_70301_a(0).getItem() instanceof IBloodOrb)) {
-		if (altar.getStackInSlot(0) != null) {
-			ItemStack itemStack = altar.getStackInSlot(0);
-			if ((altar.getStackInSlot(0).getItem() instanceof IBloodOrb)) {
+		if (altar.func_70301_a(0) != null) {
+			ItemStack itemStack = altar.func_70301_a(0);
+			if ((altar.func_70301_a(0).getItem() instanceof IBloodOrb)) {
+//		if (altar.getStackInSlot(0) != null) {
+//			ItemStack itemStack = altar.getStackInSlot(0);
+//			if ((altar.getStackInSlot(0).getItem() instanceof IBloodOrb)) {
 				IBloodOrb orb = (IBloodOrb) itemStack.getItem();
 				String ownerUUID = "No Owner";
 				if (itemStack.getTagCompound() != null) {

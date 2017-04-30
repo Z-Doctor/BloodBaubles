@@ -25,7 +25,7 @@ public class InsightfulTrinket extends BloodBauble implements IAltarReader, ICon
 		super("InsightfulTrinket", true);
 		setSubCount(2);
 	}
-	
+
 	public int getScanRadius() {
 		return 10;
 	}
@@ -36,7 +36,8 @@ public class InsightfulTrinket extends BloodBauble implements IAltarReader, ICon
 			if (player.isSneaking()) {
 				ItemStack stack = player.getHeldItem(hand);
 				UUID uuid = PlayerHelper.getUUIDFromPlayer(player);
-				NBTHelper.checkNBT(stack).getTagCompound().setString(Constants.NBT.OWNER_NAME, PlayerHelper.getUsernameFromUUID(uuid));
+				NBTHelper.checkNBT(stack).getTagCompound().setString(Constants.NBT.OWNER_NAME,
+						PlayerHelper.getUsernameFromUUID(uuid));
 				NBTHelper.checkNBT(stack).getTagCompound().setString(Constants.NBT.OWNER_UUID, uuid.toString());
 				SoulNetwork soulNetwork = NetworkHelper.getSoulNetwork(player);
 				switch (stack.getMetadata()) {
@@ -47,12 +48,13 @@ public class InsightfulTrinket extends BloodBauble implements IAltarReader, ICon
 					ModItems.SIGIL_SEER.onItemRightClick(world, player, hand);
 					break;
 				}
-				
+
 				return new ActionResult<ItemStack>(EnumActionResult.PASS, player.getHeldItem(hand));
 			}
 		}
 		return super.onItemRightClick(world, player, hand);
 	}
+
 	@Override
 	public BaubleType getBaubleType(ItemStack itemstack) {
 		return BaubleType.TRINKET;

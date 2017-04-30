@@ -13,7 +13,6 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.world.World;
-import zdoctor.bloodbaubles.ModMain;
 import zdoctor.bloodbaubles.creativetab.BloodBaubles;
 import zdoctor.lazymodder.easy.EasyItems;
 

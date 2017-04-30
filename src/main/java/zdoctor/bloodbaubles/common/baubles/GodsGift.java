@@ -5,7 +5,7 @@ public class GodsGift extends BloodRing {
 		super("GodsGift", true);
 		setSubCount(2);
 	}
-	
+
 	@Override
 	public String getNameFromMeta(int itemDamage) {
 		return super.getRegistryName().getResourcePath() + (itemDamage == 0 ? "_Inactive" : "_Active");

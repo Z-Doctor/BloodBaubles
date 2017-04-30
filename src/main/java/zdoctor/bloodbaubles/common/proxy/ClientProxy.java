@@ -9,19 +9,19 @@ import zdoctor.lazymodder.core.DevTools;
 
 public class ClientProxy extends CommonProxy {
 	@Override
-    public void preInit(FMLPreInitializationEvent e) {
-        super.preInit(e);
-        DevTools.registerItemModels(ModMain.MODID);
-    }
+	public void preInit(FMLPreInitializationEvent e) {
+		super.preInit(e);
+		DevTools.registerItemModels(ModMain.MODID);
+	}
 
-    @Override
-    public void init(FMLInitializationEvent e) {
-        super.init(e);
-    }
+	@Override
+	public void init(FMLInitializationEvent e) {
+		super.init(e);
+	}
 
-    @Override
-    public void postInit(FMLPostInitializationEvent e) {
-        super.postInit(e);
-        RenderEvents.postInit();
-    }
+	@Override
+	public void postInit(FMLPostInitializationEvent e) {
+		super.postInit(e);
+		RenderEvents.postInit();
+	}
 }
