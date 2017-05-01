@@ -1,4 +1,4 @@
-package zdoctor.bloodbaubles.common.baubles;
+package zdoctor.bloodbaubles.common.item.baubles;
 
 import java.util.List;
 
@@ -13,10 +13,9 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.world.World;
-import zdoctor.bloodbaubles.api.IConsumeBloodOrb;
 import zdoctor.bloodbaubles.api.IStoreLP;
 
-public class EssenceRing extends BloodRing implements IStoreLP, IConsumeBloodOrb {
+public class EssenceRing extends BloodRing implements IStoreLP {
 	public static final String[] orbNameList = new String[] { "Weak", "Apprentices", "Magicians", "Masters",
 			"Archmages", "Transcendents" };
 	public static final BloodOrb[] orbList = new BloodOrb[] { ModItems.ORB_WEAK, ModItems.ORB_APPRENTICE,
@@ -29,6 +28,10 @@ public class EssenceRing extends BloodRing implements IStoreLP, IConsumeBloodOrb
 	public EssenceRing() {
 		super("EssenceRing", true);
 		setSubCount(orbList.length * material.length);
+	}
+	
+	public EssenceRing(String name) {
+		this(name, false);
 	}
 
 	public EssenceRing(String name, boolean hasSubTypes) {

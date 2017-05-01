@@ -1,4 +1,4 @@
-package zdoctor.bloodbaubles.common.baubles;
+package zdoctor.bloodbaubles.common.item.baubles;
 
 public class GodsGift extends BloodRing {
 	public GodsGift() {

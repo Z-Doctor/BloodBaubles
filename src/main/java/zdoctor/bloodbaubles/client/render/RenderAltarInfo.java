@@ -19,11 +19,11 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.eventhandler.Event;
 import zdoctor.bloodbaubles.common.ZBaubles;
-import zdoctor.bloodbaubles.common.baubles.InsightfulTrinket;
 import zdoctor.bloodbaubles.common.events.RenderAltarInfoEvent;
 import zdoctor.bloodbaubles.common.helpers.LocatingHelpers;
 import zdoctor.bloodbaubles.common.helpers.RenderHelper;
 import zdoctor.bloodbaubles.common.helpers.VectorHelper;
+import zdoctor.bloodbaubles.common.item.baubles.InsightfulTrinket;
 
 public class RenderAltarInfo {
 	public static void render() {

@@ -1,4 +1,4 @@
-package zdoctor.bloodbaubles.common.baubles;
+package zdoctor.bloodbaubles.common.item.baubles;
 
 import zdoctor.bloodbaubles.common.item.BloodBauble;
 

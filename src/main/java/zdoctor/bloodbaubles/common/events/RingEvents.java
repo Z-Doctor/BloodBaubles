@@ -12,7 +12,7 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import zdoctor.bloodbaubles.common.ZBaubles;
-import zdoctor.bloodbaubles.common.baubles.EssenceRing;
+import zdoctor.bloodbaubles.common.item.baubles.EssenceRing;
 
 public class RingEvents {
 	public static void postInit() {

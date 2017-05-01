@@ -1,4 +1,4 @@
-package zdoctor.bloodbaubles.common.baubles;
+package zdoctor.bloodbaubles.common.item.baubles;
 
 import java.util.List;
 import java.util.UUID;
@@ -15,12 +15,11 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.world.World;
-import zdoctor.bloodbaubles.api.IConsumeBloodOrb;
 import zdoctor.bloodbaubles.common.Config;
 
-public class SoulRing extends EssenceRing implements IConsumeBloodOrb, IBindable {
+public class SoulRing extends EssenceRing implements IBindable {
 	public SoulRing() {
-		super("SoulRing", false);
+		super("SoulRing");
 	};
 
 	@Override
