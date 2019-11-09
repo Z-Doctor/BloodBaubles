@@ -1,0 +1,17 @@
+[
+{
+  "modid": "bloodbaubles",
+  "name": "Blood Baubles",
+  "description": "For the traveling BloodMage.",
+  "version": "",
+  "mcversion": "1.11.2",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["Z_Doctor"],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [],
+  "requiredMods" = [],
+  "dependencies": []
+}
+]
